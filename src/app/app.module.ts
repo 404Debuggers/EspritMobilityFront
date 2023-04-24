@@ -5,12 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+import { CandidacyComponent } from './candidacy/candidacy.component';
+import { OfferComponent } from './offer/offer.component';
+import { BlogComponent } from './blog/blog.component';
+import { ReportComponent } from './report/report.component';
+import { InterviewComponent } from './interview/interview.component';
+import { DormitoriesComponent } from './dormitories/dormitories.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    CandidacyComponent,
+    OfferComponent,
+    BlogComponent,
+    ReportComponent,
+    InterviewComponent,
+    DormitoriesComponent,
+    DashboardComponent,
+    LoginComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
