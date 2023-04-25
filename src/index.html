@@ -6,76 +6,34 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link
-  rel="shortcut icon"
-  href="assets/images/favicon.png"
-  type="image/x-icon"
-/>
-<link rel="stylesheet" href="assets/css/animate.css" />
-<link rel="stylesheet" href="assets/css/tailwind.css" />
+ <!-- font icons -->
+ <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
 
-<!-- ==== WOW JS ==== -->
-<script src="assets/js/wow.min.js"></script>
-<script>
-  new WOW().init();
-</script>
+ <!-- owl carousel -->
+ <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.carousel.css">
+ <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.theme.default.css">
+
+ <!-- Bootstrap + Ollie main styles -->
+<link rel="stylesheet" href="assets/css/ollie.css">
 
 
 
 </head>
 <body>
   <app-root></app-root>
-    <!-- ==== WOW JS ==== -->
-    <script src="assets/js/wow.min.js"></script>
-    <script>
-      new WOW().init();
-    </script>
 
-    <!-- ====== All Scripts -->
+	<!-- core  -->
+  <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+  <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
-    <script src="assets/js/main.js"></script>
-    <script>
-      // ==== for menu scroll
-      const pageLink = document.querySelectorAll(".ud-menu-scroll");
+  <!-- bootstrap 3 affix -->
+<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
 
-      pageLink.forEach((elem) => {
-        elem.addEventListener("click", (e) => {
-          e.preventDefault();
-          document.querySelector(elem.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-            offsetTop: 1 - 60,
-          });
-        });
-      });
+  <!-- Owl carousel  -->
+  <script src="assets/vendors/owl-carousel/js/owl.carousel.js"></script>
 
-      // section menu active
-      function onScroll(event) {
-        const sections = document.querySelectorAll(".ud-menu-scroll");
-        const scrollPos =
-          window.pageYOffset ||
-          document.documentElement.scrollTop ||
-          document.body.scrollTop;
 
-        for (let i = 0; i < sections.length; i++) {
-          const currLink = sections[i];
-          const val = currLink.getAttribute("href");
-          const refElement = document.querySelector(val);
-          const scrollTopMinus = scrollPos + 73;
-          if (
-            refElement.offsetTop <= scrollTopMinus &&
-            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
-          ) {
-            document
-              .querySelector(".ud-menu-scroll")
-              .classList.remove("active");
-            currLink.classList.add("active");
-          } else {
-            currLink.classList.remove("active");
-          }
-        }
-      }
-
-      window.document.addEventListener("scroll", onScroll);
-    </script>
+  <!-- Ollie js -->
+  <script src="assets/js/Ollie.js"></script>
 </body>
 </html>

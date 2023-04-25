@@ -15,7 +15,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f6f9ff;
+  background: #e9ecef;
   color: #444444;
 }
 
@@ -365,8 +365,7 @@ h6 {
 }
 
 .logo img {
-  max-height: 7rem;
-  margin-left: 60px;
+  max-height: 10rem;
 }
 
 .logo span {
