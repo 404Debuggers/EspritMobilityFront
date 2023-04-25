@@ -10,4 +10,6 @@ export class Candidacy {
   status:any
   marks:any
   archive:any
+  offerId:any
+  userId:any
 }
