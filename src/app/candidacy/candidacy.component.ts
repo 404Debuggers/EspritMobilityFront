@@ -29,7 +29,7 @@ export class CandidacyComponent implements OnInit  {
       status:null,
       marks:null,
       archive:null,
-      offerId:null,
+      title:null,
       userId:null
     }
   }
