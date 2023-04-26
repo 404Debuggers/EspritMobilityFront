@@ -14,13 +14,12 @@ import { DormitoriesComponent } from './dormitories/dormitories.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { FormsModule } from  '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForumComponent } from './forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LandingPageComponent,
     ForbiddenComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,
