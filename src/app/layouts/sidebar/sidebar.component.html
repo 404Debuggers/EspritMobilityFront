@@ -2,7 +2,7 @@
 
   <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-item">
+    <li class="nav-item"  *ngIf="role!= 'ROLE_STUDENT'">
       <a class="nav-link collapsed" routerLink="/dashboard">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
@@ -10,7 +10,7 @@
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed " routerLink="/offer">
+      <a class="nav-link " routerLink="/offer">
         <i class="bi bi-newspaper"></i><span>Offer</span>
       </a>
     </li><!-- End Components Nav -->
@@ -37,9 +37,9 @@
         <i class="bi bi-chat-left-text"></i><span>Blog</span>
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/forum" >
-        <i class="bi bi-chat-left-text"></i><span>Forum</span>
+    <li class="nav-item" *ngIf="role =='ROLE_ADMIN'">
+      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/register" >
+        <i class="bi bi-chat-left-text"></i><span>Register</span>
       </a>
     </li>
     <li class="nav-item">

@@ -19,7 +19,6 @@ import { FormsModule } from  '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ForumComponent } from './forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { ForumComponent } from './forum/forum.component';
     LoginComponent,
     LandingPageComponent,
     ForbiddenComponent,
-    RegisterComponent,
-    ForumComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

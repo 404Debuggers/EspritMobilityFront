@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Report } from '../class/report';
-import { ReportService } from '../shared/report.service';
 
 @Component({
   selector: 'app-report',
@@ -8,16 +6,10 @@ import { ReportService } from '../shared/report.service';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-  listReport: any;
-  form : boolean = true;
-  report! : Report;
-  constructor(private reportService:ReportService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.getAllReport();
-  }
-  getAllReport() {
-    this.reportService.getAllReport().subscribe((res:any) => this.listReport = res)
   }
 
 }
