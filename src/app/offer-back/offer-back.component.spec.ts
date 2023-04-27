@@ -1,20 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForbiddenComponent } from './forbidden.component';
+import { OfferBackComponent } from './offer-back.component';
+import { NgForm } from '@angular/forms';
 
-describe('ForbiddenComponent', () => {
-  let component: ForbiddenComponent;
-  let fixture: ComponentFixture<ForbiddenComponent>;
+describe('OfferBackComponent', () => {
+  let component: OfferBackComponent;
+  let fixture: ComponentFixture<OfferBackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForbiddenComponent ]
+      declarations: [ OfferBackComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ForbiddenComponent);
+    fixture = TestBed.createComponent(OfferBackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,18 +5,16 @@ import { OfferComponent } from './offer/offer.component';
 import { ReportComponent } from './report/report.component';
 import { DormitoriesComponent } from './dormitories/dormitories.component';
 import { InterviewComponent } from './interview/interview.component';
+import { OfferBackComponent } from './offer-back/offer-back.component';
 import { BlogComponent } from './blog/blog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
-import {RegisterComponent} from "./register/register.component";
-import { ForumComponent } from './forum/forum.component';
-import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
-
+import { EditOfferComponent } from './edit-offer/edit-offer.component';
 
 
 const routes: Routes = [
-   { path: '', redirectTo: '/login', pathMatch: 'full'  },
+  // { path: '', redirectTo: '/login', pathMatch: 'full'  },
   { path: '', component: LandingPageComponent  },
   { path: 'login', component: LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
@@ -24,10 +22,9 @@ const routes: Routes = [
   { path: 'offer', component: OfferComponent },
   { path: 'report', component: ReportComponent },
   { path: 'dormitories', component: DormitoriesComponent },
-  { path: 'interview', component: InterviewComponent },
+  { path: 'interview', component: OfferBackComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'register' , component: RegisterComponent},
-  { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
+  { path: 'edit-offer/:offerId', component: EditOfferComponent }
 
 ];
 

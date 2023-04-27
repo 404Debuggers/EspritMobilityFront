@@ -14,15 +14,12 @@ import { DormitoriesComponent } from './dormitories/dormitories.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { FormsModule } from  '@angular/forms';
-import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ForumComponent } from './forum/forum.component';
-import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
-import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
+
+import { OfferBackComponent } from './offer-back/offer-back.component';
+import { EditOfferComponent } from './edit-offer/edit-offer.component';
 
 
 
@@ -40,10 +37,9 @@ import { Router } from '@angular/router';
     DashboardComponent,
     LoginComponent,
     LandingPageComponent,
-    ForbiddenComponent,
-    RegisterComponent,
-    ForumComponent,
-    AddCandidacyComponent
+    
+    OfferBackComponent,
+         EditOfferComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +47,6 @@ import { Router } from '@angular/router';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

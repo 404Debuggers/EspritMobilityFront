@@ -2,7 +2,7 @@
 
   <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-item"  *ngIf="role!= 'ROLE_STUDENT'">
+    <li class="nav-item">
       <a class="nav-link collapsed" routerLink="/dashboard">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
@@ -35,11 +35,6 @@
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/blog" >
         <i class="bi bi-chat-left-text"></i><span>Blog</span>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role =='ROLE_ADMIN'">
-      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/register" >
-        <i class="bi bi-chat-left-text"></i><span>Register</span>
       </a>
     </li>
     <li class="nav-item">

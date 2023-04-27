@@ -1,5 +1,6 @@
 export class Offer {
-  offerId: any ;
+
+    offerId: any ;
     dateDebut: any;
     dateFin: any
     nbPlace: any;

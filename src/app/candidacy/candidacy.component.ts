@@ -29,12 +29,17 @@ export class CandidacyComponent implements OnInit  {
       status:null,
       marks:null,
       archive:null,
-      title:null,
-
+      offerId:null,
+      userId:null
     }
   }
   getAllCandidacy() {
     this.candidacyService.getAllCandidacy().subscribe((res:any) => this.listCandidacy = res)
   }
-
+  addCandidacy(c: any){
+    this.candidacyService.addCandidacy(c).subscribe(() => {
+      this.getAllCandidacy();
+      this.form = false;
+    });
+  }
 }

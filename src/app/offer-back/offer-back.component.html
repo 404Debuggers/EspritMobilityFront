@@ -1,0 +1,133 @@
+<!-- <form *ngIf="form" #f = "ngForm" (ngSubmit) = "addOffer(f)">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text"  [(ngModel)]="title" class="form-control" name="title" placeholder="Enter title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" [(ngModel)]="description" name="description" rows="3" placeholder="Enter description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="fieldOfStudy">Field of Study</label>
+      <input type="text" [(ngModel)]="fieldOfStudy"  class="form-control" name="fieldOfStudy" placeholder="Enter field of study">
+    </div>
+    <div class="form-group">
+      <label for="prerequis">Prerequisites</label>
+      <input type="text"  [(ngModel)]="prerequis" class="form-control" name="prerequis" placeholder="Enter prerequisites">
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="file" [(ngModel)]="image"  class="form-control" name="image" placeholder="Enter image URL">
+    </div>
+    <div class="form-group">
+      <label for="frais">Frais</label>
+      <input type="number" [(ngModel)]="frais"   class="form-control" name="frais" placeholder="Enter frais">
+    </div>
+    <div class="form-group">
+      <label for="university">University</label>
+      <input type="text" [(ngModel)]="university" class="form-control" name="university" placeholder="Enter university">
+    </div>
+    <div class="form-group">
+      <label for="dateDebut">Date de debut</label>
+      <input type="date" [(ngModel)]="dateDebut"  class="form-control" name="dateDebut">
+    </div>
+    <div class="form-group">
+      <label for="dateFin">Date de fin</label>
+      <input type="date" [(ngModel)]="dateFin" class="form-control" name="dateFin">
+    </div>
+    <div class="form-group">
+      <label for="nbPlace">Number of Places</label>
+      <input type="number" [(ngModel)]="nbPlace" class="form-control" name="nbPlace">
+    </div>
+    <div class="form-group">
+      <label for="deadline">Deadline</label>
+      <input type="date" [(ngModel)]="deadline" class="form-control" name="deadline">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+   -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+   <div class="card-body">
+    <h5 class="card-title"></h5>
+  
+    <!-- Vertical Form -->
+    <div class="d-flex justify-content-center">
+      <form *ngIf="form" #f="ngForm" (ngSubmit)= "addOffer(f)" class="row g-3">
+        <div class="col-12">
+          <label  class="form-label">Title</label>
+          <input type="text" [(ngModel)]="title" class="form-control" id="inputNanme4" name ="title">
+        </div>
+        <div class="col-12">
+          <label  class="form-label">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="description" id="inputEmail4" name ="description">
+        </div>
+        <div class="col-12">
+          <label  class="form-label">fieldOfStudy</label>
+          <input type="text" [(ngModel)]="fieldOfStudy" class="form-control" id="inputPassword4" name ="fieldOfStudy">
+        </div>
+        <div class="col-12">
+          <label  class="form-label">Frais</label>
+          <input type="number" class="form-control" [(ngModel)]="frais" name ="frais" id="inputAddress" >
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </form><!-- Vertical Form -->
+    </div>
+  
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">All Offer</h5>
+      <!-- Table with stripped rows -->
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th scope="col">Offer title</th>
+            <th scope="col">Start Date</th>
+            <th scope="col"> End Date</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Filed of study</th>
+            <th scope="col">Number of place </th>
+            <th scope="col">Price </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let o of  offers'>
+            <td>{{o.title}}</td>
+            <td>{{o.dateDebut}}</td>
+            <td>{{o.dateFin}}</td>
+            <td>{{o.deadline}}</td>
+            <td>{{o.fieldOfStudy}}</td>
+            <td>{{o.nbPlace}}</td>
+            <td>{{o.frais}}</td>
+
+            <td> <button class="btn btn-primary" data-toggle="tooltip"  (click)="editOffer(o)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              
+              
+              
+              
+              <button class="btn btn-danger" (click)="deleteOffer(o.offerId)">
+                <i class="bi bi-trash"></i>
+            </button>
+            
+              
+              
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <!-- End Table with stripped rows -->
+
+    </div>
+  </div>
+</main>
+
