@@ -19,6 +19,12 @@ import { FormsModule } from  '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForumComponent } from './forum/forum.component';
+import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LandingPageComponent,
     ForbiddenComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForumComponent,
+    AddCandidacyComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
 import {RegisterComponent} from "./register/register.component";
+import { ForumComponent } from './forum/forum.component';
+import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
+
+
 
 const routes: Routes = [
    { path: '', redirectTo: '/login', pathMatch: 'full'  },
@@ -23,6 +27,8 @@ const routes: Routes = [
   { path: 'interview', component: InterviewComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'register' , component: RegisterComponent},
+  { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
+
 ];
 
 @NgModule({
