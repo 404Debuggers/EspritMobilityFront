@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DormitoriesService } from '../shared/dormitories.service';
 
 @Component({
   selector: 'app-dormitories',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dormitories.component.css']
 })
 export class DormitoriesComponent implements OnInit {
+dorms : any;
+  constructor(private DormitoriesService : DormitoriesService) { }
 
-  constructor() { }
+getalldorm(){
+  this.DormitoriesService.GetAllDorm().subscribe(data =>{
+    this.dorms = data
+  });
+}
 
   ngOnInit(): void {
+    this.getalldorm();
   }
 
 }

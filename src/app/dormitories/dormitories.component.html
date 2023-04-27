@@ -1,1 +1,57 @@
-<p>dormitories works!</p>
+
+
+<section class="shop_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Our Auctions</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let dorm of dorms">
+        <div class="box">
+          <div class="img-box">
+            <h6>{{dorm.location}}</h6>
+            <img src="../../assets/img/img-1.jpg">
+          </div>
+          <div class="detail-box">
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Prix :</a>
+              {{dorm.prix}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Dorm Type :</a>
+              {{dorm.dormType}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Rating :</a>
+              {{dorm.rating}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Dorm Status :</a>
+              {{dorm.dormstatus}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Nombre Places :</a>
+              {{dorm.nbPlaces}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Archive :</a>
+              {{dorm.archive}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Rent :</a>
+              {{dorm.rent}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Lattitude :</a>
+              {{dorm.lattitude}}
+            </h6>
+            <h6>
+              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Longitude :</a>
+              {{dorm.longitude}}
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button routerLink="/AddAuction">Add Auction</button>
+ 

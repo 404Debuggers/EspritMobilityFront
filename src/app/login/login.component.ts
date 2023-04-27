@@ -11,6 +11,10 @@ import {Router} from "@angular/router";
 })
 
 export class LoginComponent implements OnInit {
+
+  isLoginFailed= false ;
+  isLoggedIn = false; 
+  errorMessage='';
   username : string | undefined;
   password : string | undefined;
   constructor(private userService : UserService , private router: Router) { }
@@ -35,10 +39,19 @@ export class LoginComponent implements OnInit {
       (response) =>{
         console.log(response);
         this.router.navigate(['dashboard']);
+        sessionStorage.setItem('Token', response.token);
+        sessionStorage.setItem('Role', response.roles[0]);
+
+        this.isLoggedIn = true;
+        this.isLoginFailed = false;
+      
 
       },
       (error) => {
         console.log(error);
+        this.isLoginFailed = true;
+        this.isLoggedIn = false;
+        this.errorMessage = error.error.errorMessage;
       }
     )
 

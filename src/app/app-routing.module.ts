@@ -16,7 +16,7 @@ import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 
 
 const routes: Routes = [
-  //{ path: '', redirectTo: '/login', pathMatch: 'full'  },
+   { path: '', redirectTo: '/login', pathMatch: 'full'  },
   { path: '', component: LandingPageComponent  },
   { path: 'login', component: LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
@@ -26,7 +26,6 @@ const routes: Routes = [
   { path: 'dormitories', component: DormitoriesComponent },
   { path: 'interview', component: InterviewComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'forum', component: ForumComponent},
   { path: 'register' , component: RegisterComponent},
   { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
 
