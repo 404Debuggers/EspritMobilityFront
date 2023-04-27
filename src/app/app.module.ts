@@ -24,6 +24,7 @@ import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,8 @@ import { Router } from '@angular/router';
     RegisterComponent,
     ForumComponent,
     AddCandidacyComponent
+
+
   ],
   imports: [
     BrowserModule,

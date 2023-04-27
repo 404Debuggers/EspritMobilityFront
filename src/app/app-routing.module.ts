@@ -14,6 +14,7 @@ import { ForumComponent } from './forum/forum.component';
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 
 
+
 const routes: Routes = [
   //{ path: '', redirectTo: '/login', pathMatch: 'full'  },
   { path: '', component: LandingPageComponent  },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent},
   { path: 'register' , component: RegisterComponent},
   { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
+
 ];
 
 @NgModule({
