@@ -1,57 +1,36 @@
 
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let dorm of dorms">
+      <div class="card" style="display: flex; flex-wrap: wrap;" >
+        <img src="assets/img/img-1.jpg" class="card-img-top " alt="..." style="width: 272px; height: 300px;margin-bottom: 1rem;">
+        <div class="card-body">
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Status : </span> {{dorm.dormstatus}}</span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Dorm Type : </span> {{dorm.dormType}} </span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Location : </span> {{dorm.location}}</span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Price: </span> {{dorm.prix}}$</span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Number of place : </span> {{dorm.nbPlaces}}</span>
+          </div>
 
-<section class="shop_section layout_padding">
-  <div class="container">
-    <div class="heading_container heading_center">
-      <h2>Our Auctions</h2>
-    </div>
-    <div class="row">
-      <div class="col-md-6" *ngFor="let dorm of dorms">
-        <div class="box">
-          <div class="img-box">
-            <h6>{{dorm.location}}</h6>
-            <img src="../../assets/img/img-1.jpg">
+          <div class="d-flex align-items-center justify-content-center">
+            <button style="background-color: #EC3636;margin-top: 1rem;" class="btn btn-primary">Reservation</button>
           </div>
-          <div class="detail-box">
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Prix :</a>
-              {{dorm.prix}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Dorm Type :</a>
-              {{dorm.dormType}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Rating :</a>
-              {{dorm.rating}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Dorm Status :</a>
-              {{dorm.dormstatus}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Nombre Places :</a>
-              {{dorm.nbPlaces}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Archive :</a>
-              {{dorm.archive}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Rent :</a>
-              {{dorm.rent}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Lattitude :</a>
-              {{dorm.lattitude}}
-            </h6>
-            <h6>
-              <a style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif; font-weight: bold; color: blue;">Longitude :</a>
-              {{dorm.longitude}}
-            </h6>
-          </div>
+
         </div>
       </div>
     </div>
-    <button routerLink="/AddAuction">Add Auction</button>
- 
+  </div>
+
+</main>
+

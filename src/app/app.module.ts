@@ -19,7 +19,6 @@ import { FormsModule } from  '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ForumComponent } from './forum/forum.component';
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
@@ -42,7 +41,6 @@ import { Router } from '@angular/router';
     LandingPageComponent,
     ForbiddenComponent,
     RegisterComponent,
-    ForumComponent,
     AddCandidacyComponent
   ],
   imports: [

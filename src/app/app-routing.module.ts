@@ -10,13 +10,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
 import {RegisterComponent} from "./register/register.component";
-import { ForumComponent } from './forum/forum.component';
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 
 
 
 const routes: Routes = [
-   { path: '', redirectTo: '/login', pathMatch: 'full'  },
+  //{ path: '', redirectTo: '/login', pathMatch: 'full'  },
   { path: '', component: LandingPageComponent  },
   { path: 'login', component: LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
