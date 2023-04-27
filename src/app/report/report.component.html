@@ -17,6 +17,8 @@
                   <th scope="col">Status</th>
                   <th scope="col">Type</th>
                   <th scope="col">Description</th>
+                  <th scope="col">Action</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -26,6 +28,16 @@
                   <td class="badge bg-warning">{{r.status}}</td>
                   <td>{{r.type}}</td>
                   <td>{{r.description}}</td>
+                  <td> <a style="color: #EC3636;" class="action-icon" data-toggle="tooltip" title="" data-original-title="Modifier l'utilisateur  ">
+                    <i class="bi bi-archive"></i>
+                  </a>
+                  <a style="color: #EC3636;" class="action-icon" data-toggle="tooltip" title="" data-original-title="Modifier l'utilisateur  ">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                  </a>
+                  <a style="color: #EC3636;" class="action-icon" data-toggle="tooltip" title="" data-original-title="Modifier l'utilisateur  ">
+                    <i class="bi bi-trash"></i>
+                  </a>
+                </td>
                 </tr>
               </tbody>
             </table>

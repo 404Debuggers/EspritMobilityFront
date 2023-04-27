@@ -20,6 +20,10 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForumComponent } from './forum/forum.component';
+import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +41,10 @@ import { ForumComponent } from './forum/forum.component';
     LandingPageComponent,
     ForbiddenComponent,
     RegisterComponent,
-    ForumComponent
+    ForumComponent,
+    AddCandidacyComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,9 @@ import { ForumComponent } from './forum/forum.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
