@@ -12,7 +12,9 @@
             <table class="table datatable">
               <thead>
                 <tr>
-                  <th scope="col">Offer Id</th>
+                  <th scope="col">Offer</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
                   <th scope="col">Marks</th>
                   <th scope="col">B2 English</th>
                   <th scope="col">B2 French</th>
@@ -22,7 +24,9 @@
               </thead>
               <tbody>
                 <tr *ngFor='let c of listCandidacy'>
-                  <td>{{c.offer.offerId}}</td>
+                  <td>{{c.offer.title}}</td>
+                  <td>{{c.user.firstName}}</td>
+                  <td>{{c.user.lastName}}</td>
                   <td>{{c.marks}}</td>
                   <td>{{c.levelEng}}</td>
                   <td>{{c.levelFr}}</td>
@@ -48,52 +52,7 @@
       </div>
     </div>
   </section>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Add candidacy</h5>
-       <!-- General Form Elements -->
-       <form *ngIf="form">
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">Option</label>
-          <div class="col-sm-10">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Choose your Option</option>
-              <option value="1">GL</option>
-              <option value="2">TWIN</option>
-              <option value="3">CLOUD</option>
-            </select>
-          </div>
-        </div>
-        <div class="row mb-3">
-          <label for="inputNumber" class="col-sm-2 col-form-label">Marks</label>
-          <div class="col-sm-10">
-            <input class="form-control" type="file" [(ngModel)]="candidacy.attachements" [ngModelOptions]="{standalone:true}">
-          </div>
-        </div>
-        <div class="row mb-3">
-          <label for="inputNumber" class="col-sm-2 col-form-label">B2 English</label>
-          <div class="col-sm-10">
-            <input class="form-control" type="file"  [(ngModel)]="candidacy.B2Eng" [ngModelOptions]="{standalone:true}" >
-          </div>
-        </div>
-        <div class="row mb-3">
-          <label for="inputNumber" class="col-sm-2 col-form-label">B2 French</label>
-          <div class="col-sm-10">
-            <input class="form-control" type="file"  [(ngModel)]="candidacy.B2Fr" [ngModelOptions]="{standalone:true}">
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" (click)="addCandidacy(candidacy)">Send</button>
-          </div>
-        </div>
 
-      </form><!-- End General Form Elements -->
-
-
-
-    </div>
-  </div>
   <div class="card">
     <div class="card-body pt-3">
       <!-- Bordered Tabs -->

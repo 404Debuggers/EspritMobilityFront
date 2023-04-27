@@ -11,5 +11,6 @@ export class Candidacy {
   marks:any
   archive:any
   title:any
-  userId:any
+
 }
+
