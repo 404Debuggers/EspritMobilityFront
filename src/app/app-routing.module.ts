@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'dormitories', component: DormitoriesComponent },
   { path: 'interview', component: OfferBackComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'edit-offer/:offerId', component: EditOfferComponent }
+  { path: 'edit-offer/:offerId', component: EditOfferComponent },
+  {path: 'chart',component:ChartComponent}
 
 ];
 

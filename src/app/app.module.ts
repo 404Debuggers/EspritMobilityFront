@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { OfferBackComponent } from './offer-back/offer-back.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -40,6 +41,7 @@ import { EditOfferComponent } from './edit-offer/edit-offer.component';
     
     OfferBackComponent,
          EditOfferComponent,
+         ChartComponent,
   ],
   imports: [
     BrowserModule,

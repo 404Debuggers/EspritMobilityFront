@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Offer } from '../class/offer';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +30,12 @@ export class OfferService {
 getofferbyid(offerId : any){
 return this.httpClient.get(`${this.API_URL}/api/test/getofferbyid/${offerId}`)
 }
+
+getChartsForOffer(offerId: any): Observable<Map<any, any>> {
+  const url = `${this.API_URL}/api/test/offers/${offerId}/charts`;
+  return this.httpClient.get<Map<any, any>>(url).pipe(
+    map(response => new Map(Object.entries(response)))
+  );
+}
+
 }

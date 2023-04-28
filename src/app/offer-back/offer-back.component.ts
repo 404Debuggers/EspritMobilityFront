@@ -33,7 +33,8 @@ export class OfferBackComponent implements OnInit {
   title: any;
 
   
-  
+  categories: any[] = ['male,0-18', 'male,19-30', 'male,31-50', 'male,>50', 'female,0-18', 'female,19-30', 'female,31-50', 'female,>50'];
+  charts$: Map<any, any> | undefined;
  
   constructor(private offerService : OfferService , private router: Router) { }
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class OfferBackComponent implements OnInit {
   addOffer(offer: any) {
     //console.log(p.value)
     this.offerService.addOffer(offer.value).subscribe()
+    this.offerService.getAllOffer().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
     };
 
     deleteOffer(offerId: any){
@@ -59,9 +61,28 @@ export class OfferBackComponent implements OnInit {
     }
 
     editOffer(offer: Offer) {
-      this.router.navigate(['/', offer.offerId]);
+      this.router.navigate(['/edit-offer', offer.offerId]);
     }
+
     
+    // generateCharts(offerId: any) {
+    //   this.offerService.getChartsForOffer(offerId).subscribe(
+    //     charts => this.charts$ = charts
+        
+    //   );this.router.navigate(['/chart'])
+    // }
    
-  
+    generateCharts() {
+      this.offerService.getChartsForOffer(this.offerId).subscribe(
+        chartData => {
+          // chartData is the data returned by the API call
+          // you can pass this data to the chart component
+          // and display the chart
+          console.log(chartData);
+        },
+        error => {
+          console.error('Error generating chart:', error);
+        }
+      );}
+
 }

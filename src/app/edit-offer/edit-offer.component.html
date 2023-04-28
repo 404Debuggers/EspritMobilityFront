@@ -1,1 +1,41 @@
-<p>edit-offer works!</p>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+   <div class="card-body">
+    <h5 class="card-title"></h5>
+  
+    <!-- Vertical Form -->
+    <div class="d-flex justify-content-center">
+      <form *ngIf="form" #f="ngForm" (ngSubmit)= "editOffer(f)" class="row g-3">
+        <div class="col-12">
+          <label  class="form-label">Title</label>
+          <input type="text" [(ngModel)]="title" class="form-control" id="inputNanme4" name ="title">
+        </div>
+        <div class="col-12">
+          <label  class="form-label">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="description" id="inputEmail4" name ="description">
+        </div>
+        <div class="col-12">
+          <label  class="form-label">fieldOfStudy</label>
+          <input type="text" [(ngModel)]="fieldOfStudy" class="form-control" id="inputPassword4" name ="fieldOfStudy">
+        </div>
+        <div class="col-12">
+          <label  class="form-label">Frais</label>
+          <input type="number" class="form-control" [(ngModel)]="frais" name ="frais" id="inputAddress" >
+        </div>
+        <div class="col-12">
+            <label  class="form-label">Frais</label>
+            <input type="number" class="form-control" [(ngModel)]="offerId" name ="offerId" hidden  id="inputAddress" >
+          </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </form><!-- Vertical Form -->
+    </div>
+  
+  </div>
+
+
+</main>
