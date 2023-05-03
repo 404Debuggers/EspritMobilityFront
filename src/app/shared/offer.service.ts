@@ -15,14 +15,5 @@ export class OfferService {
   getOfferById(id: number): Observable<Offer> {
     return this.httpClient.get<Offer>(`${this.API_URL}/${id}`);
   }
-  addOffer(offer : any) {
-    return this.httpClient.post(`${this.API_URL}/add_Offer`, offer)
-  }
-deleteOffer(offerId : any){
-    return  this.httpClient.delete(`${this.API_URL}/remove-offer/${offerId}`)
-  }
-  editOffer(Offer : any){
-    return this.httpClient.put(`${this.API_URL}/update_Offer`, Offer)
 
-}
 }

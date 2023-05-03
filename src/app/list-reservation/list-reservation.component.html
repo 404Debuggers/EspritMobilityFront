@@ -1,0 +1,38 @@
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let reserv of reservation">
+      <div class="card" style="display: flex; flex-wrap: wrap;" >
+        <img src="assets/img/img-1.jpg" class="card-img-top " alt="..." style="width: 272px; height: 300px;margin-bottom: 1rem;">
+        <div class="card-body">
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">ID : </span> {{reserv.reservationId}}</span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Document : </span> {{reserv.documents}}</span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Reservation Date: </span> {{reserv.reservationDate}} </span>
+          </div>
+          <div>
+            <span><span style="font-weight: bolder; color:#012970">Paiement Status : </span> {{reserv.paiementStatus}}</span>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <button (click)=" deleteReservation(reserv.reservationId)"style="background-color: #EC3636;margin-top: 1rem;" class="btn btn-primary">Supprimer</button>
+          
+            <button routerLink="/UpdateReservation/{{reserv.reservationId}}" style="background-color: #EC3636;margin-top: 1rem;" class="btn btn-primary">Update</button>
+          
+          </div>
+          
+
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+<button class="btn btn-primary" routerLink="/addReservation">Add Reservation</button>
+</main>
+

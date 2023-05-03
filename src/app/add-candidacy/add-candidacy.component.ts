@@ -14,7 +14,7 @@ export class AddCandidacyComponent implements OnInit {
   candidacy! : Candidacy;
   offer!: Offer;
   listCandidacy:any;
-  offerId: any | null = null;
+  offerId: number | null = null;
   attachments!: File;
   B2Fr!: File;
   B2Eng!: File;
@@ -22,8 +22,7 @@ export class AddCandidacyComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private candidacyService: CandidacyService,
-    private offerService: OfferService,
-    ) {}
+    private offerService: OfferService) {}
 
   ngOnInit(): void {
     this.candidacy = {
@@ -39,32 +38,35 @@ export class AddCandidacyComponent implements OnInit {
     marks:null,
     archive:null,
     title:null,
-    offerId:null,
-    firstName:null,
-    lastName:null,
-    email:null,
   }
-
   this.route.params.subscribe(params => {
-    this.offerId = ['id'];
+    this.offerId = +params['id'];
   });
   const offerId = this.route.snapshot.params['offerId'];
   this.offerService.getOfferById(offerId).subscribe((offer) => {
     this.offer = offer;
   });
-  }
-  onFileSelected(event: any,fileType :any) {
 
-    const file: File = event.files[0];
-    if (fileType === 'attachments') {
+  //   this.route.params.subscribe(params => {
+  //     console.log("hhhhhhhhhh");
+  //     const id = params['id'];
+  //     // Use the offerId to execute the desired function
+  //     console.log("hhhhhhhhhh");
+  // });
+  // this.route.params.subscribe(params => {
+  //   this.offerId = params['id'];
+  // });
+  }
+  onFileSelected(event: any, fileType: string) {
+    const file: File = event.target.files[0];
+    if (fileType === 'attachment') {
       this.attachments = file;
-    } else if (fileType === 'B2Fr') {
+    } else if (fileType === 'b2Francais') {
       this.B2Fr = file;
-    } else if (fileType === 'B2Eng') {
+    } else if (fileType === 'b2Anglais') {
       this.B2Eng = file;
     }
   }
-
   // addCandidacy(c: any){
   //   console.log(c.offerId); // add this line to check the value of offerId
   //   this.candidacyService.addCandidacy(c).subscribe(() => {
@@ -72,40 +74,19 @@ export class AddCandidacyComponent implements OnInit {
   //     this.form = false;
   //   });
   // }
-  // addCandidacy() {
-  //   let c: Candidacy
-  //   console.log("attachments",this.attachments)
-  //   console.log("B2Fr",this.B2Fr)
-  //   console.log("B2Eng",this.B2Eng)
-  //   const formData: FormData = new FormData();
-  //   formData.append('attachments', this.attachments);
-  //   formData.append('B2Fr', this.B2Fr);
-  //   formData.append('B2Eng', this.B2Eng);
-  //   let id = Number(this.route.snapshot.paramMap.get('id'));
-  //   this.candidacyService.addCandidacy(this.candidacy,id).subscribe((res) => {
-  //     console.log('Candidacy added successfully.',res);
-  //     this.router.navigate(['/']);
-  //   },);
-  // }
   addCandidacy() {
-    console.log("attachments",this.attachments)
-    console.log("B2Fr",this.B2Fr)
-    console.log("B2Eng",this.B2Eng)
-    const attachments = this.attachments;
-    const B2Fr = this.B2Fr;
-    const B2Eng = this.B2Eng;
-    let id = Number(this.route.snapshot.paramMap.get('id'));
-    this.candidacyService.addCandidacy(id, attachments, B2Fr, B2Eng).subscribe(
-      (response) => {
-        console.log('Upload success');
-      },
-      (error) => {
-        console.error('Upload error',error);
-      }
-    );
+    const formData: FormData = new FormData();
+    formData.append('candidacy', JSON.stringify(this.candidacy));
+    formData.append('attachments', this.attachments);
+    formData.append('B2Fr', this.B2Fr);
+    formData.append('B2Eng', this.B2Eng);
+    this.candidacyService.addCandidacy(this.candidacy, this.attachments, this.B2Fr, this.B2Eng).subscribe(() => {
+      console.log('Candidacy added successfully.');
+      this.router.navigate(['/']);
+    }, error => {
+      console.log('An error occurred while adding the candidacy: ', error);
+    });
+  }
 
-    localStorage.setItem('candidacy', "1");
-  this.router.navigate(['/candidacy']);
 
-}
 }

@@ -8,6 +8,9 @@ import { DormitoriesService } from '../shared/dormitories.service';
 })
 export class DormitoriesComponent implements OnInit {
 dorms : any;
+
+role:string | undefined;
+
   constructor(private DormitoriesService : DormitoriesService) { }
 
 getalldorm(){
@@ -18,6 +21,28 @@ getalldorm(){
 
   ngOnInit(): void {
     this.getalldorm();
+    this.role = ""+sessionStorage.getItem("Role");
+  
+    this.dorms={
+     DormitoriesId :null,
+     Dormstatus:null,
+     rent:null,
+     NbPlaces :null,
+     location :null,
+     lattitude:null,
+     longitude:null,
+     archive:null,
+     prix:null,  
+     dormType:null,
+     rating:null
+    }
+  }
+
+  deleteDorm(DormitoriesId: any) {
+
+    console.log("DormitoriesId test",DormitoriesId);
+    this.DormitoriesService.deleteDorm(DormitoriesId).subscribe();
+    window.location.reload();
   }
 
 }

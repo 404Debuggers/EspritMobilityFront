@@ -22,9 +22,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
-import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-candidacy-byoffer.component';
-import { AddOfferComponent } from './add-offer/add-offer.component';
-import { EditOfferComponent } from './edit-offer/edit-offer.component';
+import { AddDormComponent } from './add-dorm/add-dorm.component';
+import { UpdateDormComponent } from './update-dorm/update-dorm.component';
+import { ListReservationComponent } from './list-reservation/list-reservation.component';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
+import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -45,9 +48,12 @@ import { EditOfferComponent } from './edit-offer/edit-offer.component';
     ForbiddenComponent,
     RegisterComponent,
     AddCandidacyComponent,
-    ViewCandidacyByofferComponent,
-    AddOfferComponent,
-    EditOfferComponent,
+    AddDormComponent,
+    UpdateDormComponent,
+    ListReservationComponent,
+    AddReservationComponent,
+    UpdateReservationComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,8 @@ import { EditOfferComponent } from './edit-offer/edit-offer.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
