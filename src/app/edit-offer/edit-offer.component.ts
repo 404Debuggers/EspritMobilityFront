@@ -3,7 +3,7 @@ import { OfferService } from '../shared/offer.service';
 import { Offer } from '../class/offer';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { error } from 'console';
+
 import { NgForm } from '@angular/forms';
 
 @Component({

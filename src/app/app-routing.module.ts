@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import { ChartComponent } from './chart/chart.component';
+import { ProgramOfferComponent } from './program-offer/program-offer.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'interview', component: OfferBackComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'edit-offer/:offerId', component: EditOfferComponent },
-  {path: 'chart',component:ChartComponent}
+  {path: 'chart/:offerId',component:ChartComponent},
+  { path: 'program',component:ProgramOfferComponent}
 
 ];
 

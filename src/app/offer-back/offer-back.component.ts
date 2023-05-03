@@ -16,6 +16,8 @@ import { Offer } from '../class/offer';
   styleUrls: ['./offer-back.component.css']
 })
 export class OfferBackComponent implements OnInit {
+  offer: Offer = new Offer();
+
   form : boolean = true;
   offers :any | undefined;
   offerId : any
@@ -31,15 +33,20 @@ export class OfferBackComponent implements OnInit {
   archive: any;
   university: any;
   title: any;
+  offerDate: any; 
+  showDatePicker = false;
 
   
   categories: any[] = ['male,0-18', 'male,19-30', 'male,31-50', 'male,>50', 'female,0-18', 'female,19-30', 'female,31-50', 'female,>50'];
-  charts$: Map<any, any> | undefined;
+  chartData: Map<any, any> | undefined;
  
   constructor(private offerService : OfferService , private router: Router) { }
   ngOnInit(): void {
     this.offerService.getAllOffer().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
   }
+
+
+  
 
   addOffer(offer: any) {
     //console.log(p.value)
@@ -64,6 +71,15 @@ export class OfferBackComponent implements OnInit {
       this.router.navigate(['/edit-offer', offer.offerId]);
     }
 
+
+
+    
+
+
+ chart(offer: Offer) {
+      this.router.navigate(['/chart', offer.offerId]);
+    }
+
     
     // generateCharts(offerId: any) {
     //   this.offerService.getChartsForOffer(offerId).subscribe(
@@ -72,17 +88,29 @@ export class OfferBackComponent implements OnInit {
     //   );this.router.navigate(['/chart'])
     // }
    
-    generateCharts() {
-      this.offerService.getChartsForOffer(this.offerId).subscribe(
-        chartData => {
-          // chartData is the data returned by the API call
-          // you can pass this data to the chart component
-          // and display the chart
-          console.log(chartData);
-        },
-        error => {
-          console.error('Error generating chart:', error);
-        }
-      );}
+    // generateCharts() {
+    //   this.offerService.getChartsForOffer(this.offerId).subscribe(
+    //     chartData => {
+    //       // chartData is the data returned by the API call
+    //       // you can pass this data to the chart component
+    //       // and display the chart
+    //       console.log(chartData);
+    //     },
+    //     error => {
+    //       console.error('Error generating chart:', error);
+    //     }
+    //   );}
 
+    // generateCharts(offerId: any) {
+    //   console.log('Offer ID:', offerId);
+    //   this.offerService.getChartsForOffer(offerId).subscribe((charts) => {
+    //     this.chartData = charts;
+    //     console.log(charts);
+    //   });
+    //   this.router.navigate(['/chart', offerId.offerId]);
+    // }
+    
+
+
+    
 }

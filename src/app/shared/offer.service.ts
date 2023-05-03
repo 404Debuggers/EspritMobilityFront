@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Offer } from '../class/offer';
 import { Observable, map } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,21 @@ getChartsForOffer(offerId: any): Observable<Map<any, any>> {
     map(response => new Map(Object.entries(response)))
   );
 }
+
+
+addOfferAtSpecificTime(offer: Offer, offerTime: string): Observable<Offer> {
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'X-Offer-Time': offerTime
+  });
+
+  return this.httpClient.post<Offer>(`${this.API_URL}/api/test/offersaddwithdate`, offer, { headers });
+  
+}
+
+getSimilarOffers(userId: any) {
+  return this.httpClient.get<any>(`${this.API_URL}/api/test/findOffersWithS/${userId}`);
+}
+
 
 }

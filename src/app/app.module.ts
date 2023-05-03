@@ -1,6 +1,10 @@
 import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
@@ -22,6 +26,14 @@ import { OfferBackComponent } from './offer-back/offer-back.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import { ChartComponent } from './chart/chart.component';
 
+import { CommonModule } from '@angular/common';
+import { ProgramOfferComponent } from './program-offer/program-offer.component';
+import { ChartsModule } from 'ng2-charts';
+
+
+
+
+
 
 
 @NgModule({
@@ -42,6 +54,8 @@ import { ChartComponent } from './chart/chart.component';
     OfferBackComponent,
          EditOfferComponent,
          ChartComponent,
+         ProgramOfferComponent,
+         
   ],
   imports: [
     BrowserModule,
@@ -49,6 +63,9 @@ import { ChartComponent } from './chart/chart.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ChartsModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
