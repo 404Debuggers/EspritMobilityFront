@@ -11,6 +11,11 @@ export class Candidacy {
   marks:any
   archive:any
   title:any
+  offerId:any
+  lastName:any
+  firstName:any
+  email:any
+
 
 }
 

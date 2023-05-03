@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-candidacy-byoffer.component';
 
 
 
@@ -41,7 +42,8 @@ import { Router } from '@angular/router';
     LandingPageComponent,
     ForbiddenComponent,
     RegisterComponent,
-    AddCandidacyComponent
+    AddCandidacyComponent,
+    ViewCandidacyByofferComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +52,6 @@ import { Router } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

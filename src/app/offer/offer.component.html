@@ -22,7 +22,8 @@
           </div>
 
           <div class="d-flex align-items-center justify-content-center">
-            <button style="background-color: #EC3636;" class="btn btn-primary" (click)="redirectToCandidacyForm(o.offerId)">Apply</button>
+            <button *ngIf="role== 'ROLE_STUDENT'" style="background-color: #EC3636;border-color: #EC3636" class="btn btn-primary" (click)="redirectToCandidacyForm(o.offerId)">Apply</button>
+            <button *ngIf="role== 'ROLE_ADMIN'" style="background-color: #EC3636;border-color: #EC3636" class="btn btn-primary" (click)="redirectTocandidacylist(o.offerId)" >View</button>
           </div>
 
         </div>
