@@ -11,12 +11,14 @@ import { Offer } from '../class/offer';
   styleUrls: ['./offer.component.css']
 })
 export class OfferComponent implements OnInit {
+  role:string | undefined;
   form : boolean = true;
   offers :any | undefined;
   offer!:Offer;
   constructor(private offerService : OfferService,private router: Router) { }
 
   ngOnInit(): void {
+    this.role = ""+sessionStorage.getItem("Role");
     this.offer = {
       offerId: null,
       dateDebut: null,
@@ -36,11 +38,14 @@ export class OfferComponent implements OnInit {
   }
    redirectToCandidacyForm(offerId: number) {
 
-    this.router.navigate(['addcandidacy/id:'+offerId]);     console.log("hhhhhhhhhh");
+    this.router.navigate(['addcandidacy/',offerId]);     console.log("hhhhhhhhhh");
 }
 // redirectToCandidacyForm(offerId: number) {
 //   this.router.navigate(['addcandidacy/id:', offerId]);
 // }
+redirectTocandidacylist(offerId: number) {
+  this.router.navigate(['viewcandidacybyoffer', offerId]);
 
   }
+}
 
