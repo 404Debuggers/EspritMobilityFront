@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UniversityComponent } from './university/university.component';
 import { EventComponent } from './event/event.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -44,6 +45,8 @@ import { EventComponent } from './event/event.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
