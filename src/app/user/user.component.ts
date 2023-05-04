@@ -1,29 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import {SignUpInfo} from "../auth/signup-info";
-import {Router} from "@angular/router";
-import {AuthService} from "../auth/auth.service";
-import {first} from "rxjs";
-import {error} from "@angular/compiler-cli/src/transformers/util";
-import {User} from "../class/user";
 import {UserService} from "../shared/user.service";
+import {User} from "../class/user";
+import {GenderOption} from "../class/genderOption";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class RegisterComponent implements OnInit {
-
-
+export class UserComponent implements OnInit {
   listUsers: any;
   form : boolean = true;
   user!:User;
   closeResult! : string;
+
+  genderOptions: {value: string, label: string}[] = [];
   constructor(private userService : UserService ) { }
 
   ngOnInit(): void {
-
     this.getAllUsers();
+    this.genderOptions = Object.values(GenderOption).map(value => ({ value, label: value === GenderOption.MALE ? 'HOMME' : 'FEMME' }));
     this.user = {
       user_Id:null,
       firstName:null,
@@ -50,7 +46,10 @@ export class RegisterComponent implements OnInit {
       reponseReports:null,
       universities:null,
     }
+
   }
+
+
 
   getAllUsers(){
     this.userService.getAllUsers().subscribe(res => this.listUsers = res)
@@ -59,14 +58,20 @@ export class RegisterComponent implements OnInit {
   register(u: any )
   {
     this.userService.register(u).subscribe(() => {
+
       this.getAllUsers();
-      this.form = false ;
+      this.form = false;
+
+
     });
 
   }
 
-  deleteUser(idUser : any){
-    return this.userService.deleteUser(idUser).subscribe(() => this.getAllUsers())
+  deleteUser(userId : any){
+     this.userService.deleteUser(userId).subscribe((res:any) => this.getAllUsers())
+
   }
+
+
 
 }

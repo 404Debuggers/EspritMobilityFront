@@ -11,6 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.component';
 import {RegisterComponent} from "./register/register.component";
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
+import {UserComponent} from "./user/user.component";
+import {ProfileComponent} from "./user/profile/profile.component";
+import {FpasswordComponent} from "./user/fpassword/fpassword.component";
 
 
 
@@ -25,8 +28,10 @@ const routes: Routes = [
   { path: 'dormitories', component: DormitoriesComponent },
   { path: 'interview', component: InterviewComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'register' , component: RegisterComponent},
+  { path: 'register' , component: UserComponent},
   { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
+  { path: 'profile' , component:ProfileComponent},
+  { path: 'fpassword', component:FpasswordComponent}
 
 ];
 

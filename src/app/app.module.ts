@@ -22,6 +22,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { FpasswordComponent } from './user/fpassword/fpassword.component';
 
 
 
@@ -41,7 +44,10 @@ import { Router } from '@angular/router';
     LandingPageComponent,
     ForbiddenComponent,
     RegisterComponent,
-    AddCandidacyComponent
+    AddCandidacyComponent,
+    UserComponent,
+    ProfileComponent,
+    FpasswordComponent
   ],
   imports: [
     BrowserModule,
