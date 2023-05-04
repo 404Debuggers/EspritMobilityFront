@@ -23,6 +23,8 @@ import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-candidacy-byoffer.component';
+import { AddOfferComponent } from './add-offer/add-offer.component';
+import { EditOfferComponent } from './edit-offer/edit-offer.component';
 
 
 
@@ -44,6 +46,8 @@ import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-can
     RegisterComponent,
     AddCandidacyComponent,
     ViewCandidacyByofferComponent,
+    AddOfferComponent,
+    EditOfferComponent,
   ],
   imports: [
     BrowserModule,

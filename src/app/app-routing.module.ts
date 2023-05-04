@@ -12,6 +12,8 @@ import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.co
 import {RegisterComponent} from "./register/register.component";
 import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-candidacy-byoffer.component';
+import { AddOfferComponent } from './add-offer/add-offer.component';
+import { EditOfferComponent } from './edit-offer/edit-offer.component';
 
 
 
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'register' , component: RegisterComponent},
   { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
   { path: 'viewcandidacybyoffer/:id' , component: ViewCandidacyByofferComponent},
+  { path: 'addoffer' , component: AddOfferComponent},
+  { path: 'editoffer/:offerId' , component: EditOfferComponent},
 
 ];
 
