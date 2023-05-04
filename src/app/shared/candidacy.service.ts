@@ -52,5 +52,9 @@ getCurrentUserCandidacy(): Observable<Candidacy[]> {
  RestoreCandidancy(id:any):Observable<Object>{
   return this.httpClient.get(`${this.candidacyURL}/restoreCandidancy/${id}`)
  }
+ acceptBestCandidatures(id:any):Observable<Object>{
+  return this.httpClient.get(`${this.candidacyURL}/accept-best-candidatures/${id}`)
+ }
+
 
 }

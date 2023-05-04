@@ -19,7 +19,6 @@
                   <th scope="col">B2 English</th>
                   <th scope="col">B2 French</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,20 +29,10 @@
                   <td>{{c.levelEng}}</td>
                   <td>{{c.levelFr}}</td>
                   <td class="badge bg-warning">{{c.status}}</td>
-                  <td> <a style="color: #EC3636;" class="action-icon" data-toggle="tooltip" title="" data-original-title="Modifier l'utilisateur  ">
-                    <i class="bi bi-archive"></i>
-                  </a>
-                  <a style="color: #EC3636;" class="action-icon" data-toggle="tooltip" title="" data-original-title="Modifier l'utilisateur  ">
-                    <i class="bi bi-arrow-counterclockwise"></i>
-                  </a>
-                  <a style="color: #EC3636;" class="action-icon" data-toggle="tooltip" title="" data-original-title="Modifier l'utilisateur  ">
-                    <i class="bi bi-trash"></i>
-                  </a>
-                </td>
                 </tr>
               </tbody>
             </table>
-            <button style="background-color: #EC3636;border-color: #EC3636;float: right;" class="btn btn-primary">Accept Best candidate</button>
+            <button style="background-color: #EC3636;border-color: #EC3636;float: right;" class="btn btn-primary"(click)="acceptBestCandidatures(id)">Accept Best candidate</button>
             <!-- End Table with stripped rows -->
 
           </div>

@@ -21,8 +21,9 @@ export class ViewCandidacyByofferComponent implements OnInit {
     console.log(this.role);
     this.candidacyService.getCandidacyByOfferid(this.id).subscribe((res:any) =>this.listCandidacy = res);
   }
-  acceptBestCandidatures(){
-
+  acceptBestCandidatures(id:any){
+  this.candidacyService.acceptBestCandidatures(id).subscribe((res:any) =>this.listCandidacy = res);
+  window.location.reload();
   }
 
 
