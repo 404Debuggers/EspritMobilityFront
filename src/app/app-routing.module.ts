@@ -13,6 +13,7 @@ import { LandingPageComponent } from './FrontOffice/landing-page/landing-page.co
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import { ChartComponent } from './chart/chart.component';
 import { ProgramOfferComponent } from './program-offer/program-offer.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'edit-offer/:offerId', component: EditOfferComponent },
   {path: 'chart/:offerId',component:ChartComponent},
-  { path: 'program',component:ProgramOfferComponent}
+  { path: 'program',component:ProgramOfferComponent},
+  {path : 'favlist',component:FavoriteListComponent}
 
 ];
 

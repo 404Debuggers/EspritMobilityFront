@@ -37,7 +37,7 @@ export class OfferBackComponent implements OnInit {
   showDatePicker = false;
 
   
-  categories: any[] = ['male,0-18', 'male,19-30', 'male,31-50', 'male,>50', 'female,0-18', 'female,19-30', 'female,31-50', 'female,>50'];
+ 
   chartData: Map<any, any> | undefined;
  
   constructor(private offerService : OfferService , private router: Router) { }

@@ -55,4 +55,18 @@ getSimilarOffers(userId: any) {
 }
 
 
+getFavOffers(userId: any): Observable<Offer[]> {
+  const url = `${this.API_URL}/api/test/getfavoffer/${userId}`;
+  return this.httpClient.get<Offer[]>(url);
+}
+
+addFavandAssigntouser(userId: any, offerId: any): Observable<any> {
+  const url = `${this.API_URL}/api/test/addfavofferandAssignToUser/${userId}/${offerId}`;
+  return this.httpClient.get(url);
+}
+
+deleteFavorite(userId: any, offerId: any): Observable<any> {
+  return this.httpClient.delete(`${this.API_URL}/api/test/users/${userId}/favorites/${offerId}`);
+}
+
 }

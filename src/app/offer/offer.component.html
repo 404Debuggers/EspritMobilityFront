@@ -6,6 +6,7 @@
     
     
             <div class="card" >
+              <button class="bi bi-bookmark" class="btn btn-primary" (click)="toggleFavorite(c.offerId)"><i class="bi bi-bookmark"  [class.fa-bookmark-o]="!isFavorite" [class.fa-bookmark]="isFavorite"></i></button>
                 <img src="assets/img/logooo.png" class="card-img-top" alt="..." style="width: 400px; height: 200px;">
 
                 <div class="card-body">
@@ -16,6 +17,8 @@
                     {{c.nbPlace}}
                   </p>
                   <button class="btn btn-primary">Apply</button>
+                  
+                  
                 </div>
               </div>
               
