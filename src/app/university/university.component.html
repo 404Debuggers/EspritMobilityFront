@@ -1,0 +1,111 @@
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+
+
+
+
+
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+      
+        <!-- Vertical Form -->
+        <div class="d-flex justify-content-center">
+          <form *ngIf="form" #f="ngForm" (ngSubmit)= "addUni(f)" class="row g-3">
+            <div class="col-12">
+              <label  class="form-label">university name</label>
+              <input type="text" [(ngModel)]="nameUniversite" class="form-control" id="inputNanme4" name ="nameUniversite">
+            </div>
+            <div class="col-12">
+              <label  class="form-label">Location</label>
+              <input type="text" class="form-control" [(ngModel)]="location" id="inputEmail4" name ="location">
+            </div>
+            <div class="col-12">
+              <label  class="form-label">Lattitude</label>
+              <input type="text" [(ngModel)]="lattitude" class="form-control" id="inputPassword4" name ="lattitude">
+            </div>
+            <div class="col-12">
+              <label  class="form-label">Longitude</label>
+              <input type="text" class="form-control" [(ngModel)]="longitude" name ="longitude" id="longitude" >
+            </div>
+
+            <div class="col-12">
+                <label  class="form-label">Description</label>
+                <input type="text" class="form-control" [(ngModel)]="description" name ="description" id="description" >
+              </div>
+
+            <div class="col-12">
+                <label  class="form-label">Type</label>
+                <!-- <input type="" class="type" [(ngModel)]="frais" name ="frais" id="type" > -->
+                <select   class="form-control" [(ngModel)]="type" name ="type" id="type">
+                    <option value="PRIVATE">PRIVATE</option>   
+                    <option value="PUBLIC">PUBLIC</option> 
+                </select>
+              </div>
+
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+       </div>
+
+
+
+
+
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">All Universities</h5>
+      <!-- Table with stripped rows -->
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th scope="col">University</th>
+            <th scope="col">Location</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let u of  universities'>
+            <td>{{u.nameUniversite}}</td>
+            <td>{{u.location}}</td>
+            <td>{{u.description}}</td>
+            <td>{{u.type}}</td>
+            
+
+            <!-- <td> <button class="btn btn-primary" data-toggle="tooltip"  (click)="editOffer(o)">
+                <i class="bi bi-pencil"></i>
+              </button> -->
+              
+              <!-- <button class="btn btn-primary" data-toggle="tooltip"  (click)="generateCharts(o.offerId)">
+                <i class="bi bi-pencil"></i>
+              </button> -->
+             
+
+              
+               <button class="btn btn-danger" (click)="suppUni(u.universiteId)">
+                <i class="bi bi-trash"> </i>
+            </button> 
+            
+              
+              
+            
+            
+          </tr>
+        </tbody>
+      </table>
+      <!-- End Table with stripped rows -->
+
+    </div>
+  </div>
+
+
+
+</main>

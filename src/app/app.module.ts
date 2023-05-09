@@ -30,6 +30,7 @@ import { CommonModule } from '@angular/common';
 import { ProgramOfferComponent } from './program-offer/program-offer.component';
 import { ChartsModule } from 'ng2-charts';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { UniversityComponent } from './university/university.component';
 
 
 
@@ -57,6 +58,7 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
          ChartComponent,
          ProgramOfferComponent,
          FavoriteListComponent,
+         UniversityComponent,
          
   ],
   imports: [

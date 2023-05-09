@@ -14,6 +14,7 @@ import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import { ChartComponent } from './chart/chart.component';
 import { ProgramOfferComponent } from './program-offer/program-offer.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { UniversityComponent } from './university/university.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'edit-offer/:offerId', component: EditOfferComponent },
   {path: 'chart/:offerId',component:ChartComponent},
   { path: 'program',component:ProgramOfferComponent},
-  {path : 'favlist',component:FavoriteListComponent}
+  {path : 'favlist',component:FavoriteListComponent},
+  {path: 'uni' , component:UniversityComponent}
 
 ];
 
