@@ -1,0 +1,55 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <section class="section" *ngIf="role == 'ROLE_ADMIN'">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Event</h5>
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+
+                  <th scope="col">title</th>
+                  <th scope="col">start</th>
+                  <th scope="col">end</th>
+
+
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let e of ListEvent'>
+
+                  <td>{{e.title}}</td>
+                  <td>{{e.start}}</td>
+                  <td>{{e.end}}</td>
+
+
+
+
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" *ngIf="role == 'ROLE_STUDENT'">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</main>
