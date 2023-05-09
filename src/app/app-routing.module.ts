@@ -14,6 +14,7 @@ import { AddCandidacyComponent } from './add-candidacy/add-candidacy.component';
 import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-candidacy-byoffer.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
+import { EventComponent } from './event/event.component';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'viewcandidacybyoffer/:id' , component: ViewCandidacyByofferComponent},
   { path: 'addoffer' , component: AddOfferComponent},
   { path: 'editoffer/:offerId' , component: EditOfferComponent},
+  { path: 'event' , component: EventComponent},
 
 ];
 

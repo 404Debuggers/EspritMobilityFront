@@ -25,6 +25,8 @@ import { Router } from '@angular/router';
 import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-candidacy-byoffer.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
+import { EventComponent } from './event/event.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -48,6 +50,7 @@ import { EditOfferComponent } from './edit-offer/edit-offer.component';
     ViewCandidacyByofferComponent,
     AddOfferComponent,
     EditOfferComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,8 @@ import { EditOfferComponent } from './edit-offer/edit-offer.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    FullCalendarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
