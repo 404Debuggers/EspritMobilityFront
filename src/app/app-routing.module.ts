@@ -26,6 +26,7 @@ import { UpdateReservationComponent } from './update-reservation/update-reservat
 import { ChartComponent } from './chart/chart.component';
 import { UniversityComponent } from './university/university.component';
 import { ProgrammeOffreComponent } from './programme-offre/programme-offre.component';
+import { PublicationComponent } from './publication/publication.component';
 
 
 
@@ -58,6 +59,7 @@ const routes: Routes = [
   { path: 'chart/:offerId', component: ChartComponent},
   { path: 'university', component:UniversityComponent},
   { path: 'programOffer', component:ProgrammeOffreComponent},
+  { path: 'publication' , component:PublicationComponent}
 
 ];
 
