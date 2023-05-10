@@ -1,0 +1,14 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <form [formGroup]="reponseform">
+
+    <div class="form-group">
+        <label>description</label>
+        <textarea formControlName="repdescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <button (click)="addReponse()" class="btn btn-primary" type="submit">Submit form</button>
+
+</form>
+</main>

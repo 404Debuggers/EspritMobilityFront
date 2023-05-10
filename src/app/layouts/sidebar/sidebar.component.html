@@ -2,15 +2,20 @@
 
   <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="role == 'ROLE_ADMIN'">
       <a class="nav-link collapsed" routerLink="/dashboard">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li><!-- End Dashboard Nav -->
+    <li class="nav-item" *ngIf="role == 'ROLE_ADMIN'">
+      <a class="nav-link collapsed " routerLink="/university">
+        <i class="bi bi-newspaper"></i><span>University</span>
+      </a>
+    </li><!-- End Components Nav -->
 
     <li class="nav-item">
-      <a class="nav-link " routerLink="/offer">
+      <a class="nav-link collapsed" routerLink="/offer">
         <i class="bi bi-newspaper"></i><span>Offer</span>
       </a>
     </li><!-- End Components Nav -->
@@ -38,6 +43,11 @@
         <i class="bi bi-building"></i><span>Dormitories</span>
       </a>
     </li><!-- End Charts Nav -->
+    <li class="nav-item" *ngIf="role == 'ROLE_ADMIN'">
+      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" routerLink="/Reservation">
+        <i class="bi bi-building"></i><span>Reservation</span>
+      </a>
+    </li><!-- End Charts Nav -->
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/blog" >
         <i class="bi bi-chat-left-text"></i><span>Blog</span>
@@ -52,7 +62,13 @@
       <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/report">
         <i class="bi bi-exclamation-triangle"></i><span>Report</span>
       </a>
-    </li><!-- End Icons Nav -->
+    </li>
+    <li class="nav-item" *ngIf="role == 'ROLE_ADMIN'">
+      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/reponseReport">
+        <i class="bi bi-exclamation-triangle"></i><span>Report Reponse</span>
+      </a>
+    </li>
+    <!-- End Icons Nav -->
   </ul>
 
 </aside><!-- End Sidebar-->

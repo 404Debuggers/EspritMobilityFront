@@ -1,0 +1,74 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<main id="main" class="main">
+  <form (ngSubmit)="addDorm()" class="col-lg-7" >
+
+    <div class="form-group">
+        <label>DormRoomType</label>
+      <select [(ngModel)]="dormitories.dormType" class ="form-control" data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+        <option placeholder="" value=""></option>
+        <option>Single</option>
+        <option>Double</option>
+        <option>ThreeBedRoom</option>
+        <option>FourBedRoom</option>
+      </select>
+    </div>
+
+  <div class="form-group">
+    <label>Location</label>
+    <input type="text" class ="form-control" id="description"
+           [(ngModel)]="dormitories.location" name="description">
+  </div>
+
+  <div class="form-group">
+    <label>University</label>
+  <select [(ngModel)]="idUniversity" class ="form-control" data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+            <option *ngFor="let uni of universities" value="{{uni.universiteId}}">{{uni.nameUniversite}}</option>
+
+  </select>
+</div>
+
+  <div class="form-group">
+    <label>Rent</label>
+    <input type="number" class ="form-control" id="city"
+           [(ngModel)]="dormitories.rent" name="city">
+  </div>
+
+  <div class="form-group">
+    <label>Prix</label>
+    <input type="number" class ="form-control" id="street_name"
+           [(ngModel)]="dormitories.prix" name="street_name">
+  </div>
+
+  <div class="form-group">
+    <label>longitude</label>
+    <input type="number" class ="form-control" id="state"
+           [(ngModel)]="dormitories.longitude" name="state">
+  </div>
+
+  <div class="form-group">
+    <label>lattitude</label>
+    <input type="number" class ="form-control" id="state"
+           [(ngModel)]="dormitories.lattitude" name="state">
+  </div>
+
+  <div class="form-group">
+    <label>Rating</label>
+  <select [(ngModel)]="dormitories.rating" class ="form-control" data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</div>
+
+
+
+  <button class="btn btn-success" type="submit" style="margin-right: 40px;">ADD DORM</button>
+  <button class="btn btn-danger" type="reset" >Reset </button>
+
+</form>
+</main>
+
