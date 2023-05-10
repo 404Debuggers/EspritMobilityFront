@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent  {
   role:string | undefined;
   username:string | undefined
+  user_Id:string | undefined
   constructor(private router: Router) { }
 
   ngOnInit(): void {

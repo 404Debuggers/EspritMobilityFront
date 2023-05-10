@@ -1,0 +1,27 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<main id="main" class="main">
+  <form #formUpdateDor="ngForm"  (ngSubmit)="updateReservation()" class="col-lg-7" style="margin-top: 90px;margin-left:330px">
+
+    <div class="form-group">
+        <label>Dormitories</label>
+
+        <select class="form-control" name="dormitory" [(ngModel)]="selectedDormitoryId">
+            <option *ngFor="let dormitory of dorms" [value]="dormitory.dormitoriesId">{{ dormitory.location }}</option>
+          </select>
+
+
+
+    </div>
+
+
+
+
+
+
+  <button class="btn btn-success" type="submit" (click)="updateReservation()" style="margin-right: 40px;">UPDATE RESERVATION</button>
+  <button class="btn btn-danger" type="reset" >RESET</button>
+
+</form>
+</main>

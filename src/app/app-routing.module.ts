@@ -15,6 +15,18 @@ import { ViewCandidacyByofferComponent } from './view-candidacy-byoffer/view-can
 import { AddOfferComponent } from './add-offer/add-offer.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import { EventComponent } from './event/event.component';
+import { AddReportComponent } from './add-report/add-report.component';
+import { AddReportResponseComponent } from './add-report-response/add-report-response.component';
+import { ReportResponseComponent } from './report-response/report-response.component';
+import { UpdateDormComponent } from './update-dorm/update-dorm.component';
+import { AddDormComponent } from './add-dorm/add-dorm.component';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+import { ChartComponent } from './chart/chart.component';
+import { UniversityComponent } from './university/university.component';
+import { ProgrammeOffreComponent } from './programme-offre/programme-offre.component';
+
 
 
 
@@ -35,6 +47,17 @@ const routes: Routes = [
   { path: 'addoffer' , component: AddOfferComponent},
   { path: 'editoffer/:offerId' , component: EditOfferComponent},
   { path: 'event' , component: EventComponent},
+  { path:  'addreport', component: AddReportComponent},
+  { path: 'addreportresponse/:id', component: AddReportResponseComponent},
+  { path: 'reponseReport', component:ReportResponseComponent},
+  { path: 'updateDorm/:id', component:UpdateDormComponent},
+  { path: 'addDorm', component:AddDormComponent },
+  { path: 'addReservation/:id', component:AddReservationComponent },
+  { path: 'Reservation', component:ReservationComponent },
+  { path: 'updateReservation/:id' , component: UpdateReservationComponent},
+  { path: 'chart/:offerId', component: ChartComponent},
+  { path: 'university', component:UniversityComponent},
+  { path: 'programOffer', component:ProgrammeOffreComponent},
 
 ];
 

@@ -27,6 +27,18 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import { EventComponent } from './event/event.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { AddReportComponent } from './add-report/add-report.component';
+import { AddReportResponseComponent } from './add-report-response/add-report-response.component';
+import { ReportResponseComponent } from './report-response/report-response.component';
+import { UpdateDormComponent } from './update-dorm/update-dorm.component';
+import { AddDormComponent } from './add-dorm/add-dorm.component';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+import { ChartComponent } from './chart/chart.component';
+import { UniversityComponent } from './university/university.component';
+import { ProgrammeOffreComponent } from './programme-offre/programme-offre.component';
+
 
 
 
@@ -51,6 +63,16 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     AddOfferComponent,
     EditOfferComponent,
     EventComponent,
+    AddReportComponent,
+    AddReportResponseComponent,
+    ReportResponseComponent,
+    UpdateDormComponent,
+    AddDormComponent,
+    AddReservationComponent,
+    ReservationComponent,
+    UpdateReservationComponent,
+    UniversityComponent,
+    ProgrammeOffreComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,8 +81,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    FullCalendarModule
-
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

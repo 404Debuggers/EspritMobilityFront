@@ -15,6 +15,7 @@ export class OfferComponent implements OnInit {
   form : boolean = true;
   offers :any | undefined;
   offer!:Offer;
+  isFavorite: boolean | undefined;
   constructor(private offerService : OfferService,private router: Router) { }
 
   ngOnInit(): void {
@@ -35,6 +36,7 @@ export class OfferComponent implements OnInit {
       title: null,
     }
     this.offerService.getAllOffer().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
+    this.offerService.getSimilarOffers(sessionStorage.getItem("id")).subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
   }
    redirectToCandidacyForm(offerId: number) {
 
@@ -67,5 +69,50 @@ redirectTocandidacylist(offerId: number) {
     redirectToeditOffer(offer: Offer) {
       this.router.navigate(['/editoffer', offer.offerId]);
     }
+    chart(offer: Offer) {
+      this.router.navigate(['/chart', offer.offerId]);
+    }
+    toggleFavorite(offerId: any) {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      const index = favorites.indexOf(offerId);
+      if (this.checkIfOfferInFavorites(offerId)) {
+        this.deleteFavorite(offerId);
+        console.log('Offer removed from favorites');
+        if (index !== -1) {
+          favorites.splice(index, 1);
+        }
+      } else {
+        this.addFav(offerId);
+        console.log('Offer added to favorites');
+        if (index === -1) {
+          favorites.push(offerId);
+        }
+      }
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      this.isFavorite = !this.isFavorite;
+    }
+
+    checkIfOfferInFavorites(offerId: any): boolean {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      return favorites.includes(offerId);
+    }
+
+    addFav(offerId: any) {
+
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      if (favorites.indexOf(offerId) === -1) {
+        favorites.push(offerId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
+      this.offerService.addFavandAssigntouser(sessionStorage.getItem("id"),offerId).subscribe(() => {});
+    }
+
+    deleteFavorite(offerId: any) {
+      this.offerService.deleteFavorite(sessionStorage.getItem("id"),offerId).subscribe(() => {});
+    }
+    redirectToprogramoffer() {
+      this.router.navigate(['programOffer']);
+
+      }
 }
 

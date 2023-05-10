@@ -1,0 +1,24 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <div class="d-flex justify-content-center">
+  <form #myForm="ngForm" (ngSubmit)="addOfferWithDate(myForm, offerTime.value)" class="row g-3">
+      <label for="offer-title">Offer Title:</label>
+      <input type="text" id="offer-title" name="title" [(ngModel)]="offer.title" required>
+
+      <label for="offer-description">Offer Description:</label>
+      <textarea id="offer-description" name="description" [(ngModel)]="offer.description" required></textarea>
+
+      <label for="offer-fieldOfStudy">Field of Study:</label>
+      <input type="text" id="offer-fieldOfStudy" name="fieldOfStudy" [(ngModel)]="offer.fieldOfStudy" required>
+
+      <label for="offer-frais">Frais:</label>
+      <input type="number" id="offer-frais" name="frais" [(ngModel)]="offer.frais" required>
+
+      <label for="offer-time">Offer Time:</label>
+      <input type="datetime-local" id="offer-time" name="offerTime" #offerTime required>
+
+      <button type="submit">Add Offer</button>
+    </form>
+  </div>
+  </main>
