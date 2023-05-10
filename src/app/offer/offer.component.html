@@ -9,7 +9,7 @@
     <div class="col-lg-6" *ngFor="let o of offers">
       <div class="card" style="display: flex; flex-wrap: wrap;" >
         <img src="assets/img/logooo.png" class="card-img-top " alt="..." style="width: 100px; height: 100px;margin-left: 5rem;">
-        <button *ngIf="role== 'ROLE_STUDENT'" class="bi bi-bookmark" class="btn btn-primary" (click)="toggleFavorite(o.offerId)"><i class="bi bi-bookmark"  [class.fa-bookmark-o]="!isFavorite" [class.fa-bookmark]="isFavorite"></i></button>
+        <button style="background-color: transparent;border: none;color: #EC3636;text-align: center;" *ngIf="role== 'ROLE_STUDENT'" class="bi bi-bookmark"  (click)="toggleFavorite(o.offerId)"><i  [class.fa-bookmark-o]="!isFavorite" [class.fa-bookmark]="isFavorite"></i></button>
         <div class="card-body">
           <h5 class="card-title text-center">{{o.title}}</h5>
           <p class="card-text">{{o.description}}</p>

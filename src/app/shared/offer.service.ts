@@ -47,24 +47,41 @@ getofferbyid(offerId : any){
 
   }
 
-  getSimilarOffers(userId: any) {
-    return this.httpClient.get<any>(`${this.API_URL}/findOffersWithS/${userId}`);
+  getSimilarOffers(token : string): Observable<any>  {
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
+    return this.httpClient.get<any>(`${this.API_URL}/findOffersWithS/}`, { headers });
   }
 
 
-  getFavOffers(userId: any): Observable<Offer[]> {
-    const url = `${this.API_URL}/getfavoffer/${userId}`;
-    return this.httpClient.get<Offer[]>(url);
+  getFavOffers(): Observable<Offer[]> {
+    const token = sessionStorage.getItem('Token');
+    console.info(token);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+
+    return this.httpClient.get<Offer[]>(`${this.API_URL}/getfavoffer/`, { headers });
   }
 
-  addFavandAssigntouser(userId: any, offerId: any): Observable<any> {
+  addFavandAssigntouser(offerId: any): Observable<any> {
 
-    const url = `${this.API_URL}/addfavofferandAssignToUser/${userId}/${offerId}`;
-    return this.httpClient.get(url);
+    const token = sessionStorage.getItem('Token');
+      console.info(token);
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    return this.httpClient.get(`${this.API_URL}/addfavofferandAssignToUser/${offerId}`, { headers });
   }
 
-  deleteFavorite(userId: any, offerId: any): Observable<any> {
-    return this.httpClient.delete(`${this.API_URL}/users/${userId}/favorites/${offerId}`);
+  deleteFavorite(offerId: any): Observable<any> {
+
+    const token = sessionStorage.getItem('Token');
+    console.info(token);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+
+    return this.httpClient.delete(`${this.API_URL}/users/favorites/${offerId}`, { headers });
   }
 
 }

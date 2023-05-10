@@ -1,0 +1,108 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+<!--  <section class="section">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-12">-->
+
+<!--        <div class="card">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title">Interview</h5>-->
+<!--            &lt;!&ndash; Table with stripped rows &ndash;&gt;-->
+<!--            <table class="table datatable">-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th scope="col">Student Id</th>-->
+<!--                <th scope="col">First name</th>-->
+<!--                <th scope="col">Last name</th>-->
+<!--                <th scope="col">Email</th>-->
+<!--                <th scope="col">Sexe</th>-->
+<!--                <th scope="col">Status</th>-->
+
+
+
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr *ngFor='let u of listUsers'>-->
+<!--                <td>{{u.user_Id}}</td>-->
+<!--                <td>{{u.firstName}}</td>-->
+<!--                <td>{{u.lastName}}</td>-->
+<!--                <td>{{u.email}}</td>-->
+<!--                <td>{{u.sexe}}</td>-->
+<!--                <td>{{u.alumni}}</td>-->
+<!--                <td><button  class="btn btn-danger" (click)="deleteUser(u?.user_Id)">Delete</button></td> &lt;!&ndash; delete button for each row &ndash;&gt;-->
+<!--                <td><button  class="btn btn-success" (click)="deleteUser(u?.user_Id)">Delete</button></td> &lt;!&ndash; delete button for each row &ndash;&gt;-->
+
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--            &lt;!&ndash; End Table with stripped rows &ndash;&gt;-->
+
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">My Profile</h5>
+      <!-- General Form Elements -->
+      <form *ngIf="profileForm">
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">First name</label>
+          <div class="col-sm-10">
+            <input name="firstname" class="form-control" type="text"  [(ngModel)]="updatedUser.firstName"  [ngModelOptions]="{standalone:true}" required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Last Name</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text"  name="lastname" [(ngModel)]="updatedUser.lastName" [ngModelOptions]="{standalone:true}" required>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Date de naissance</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="date"  name="dNaissance"[(ngModel)]="updatedUser.dateNaissance"  [ngModelOptions]="{standalone:true}"  required>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Adresse</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" name="adresse"[(ngModel)]="updatedUser.adresse"  [ngModelOptions]="{standalone:true}"  required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Phone</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text"  name="phone" [(ngModel)]="updatedUser.phone"  [ngModelOptions]="{standalone:true}"  required>
+
+
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" (click)="updateUser()">Send</button>
+          </div>
+        </div>
+
+      </form><!-- End General Form Elements -->
+
+
+
+    </div>
+  </div>
+</main>

@@ -19,9 +19,10 @@ const TOKEN_KEY = 'AuthToken';
 })
 export class AuthService {
 
+  isLoggedIn = false;
   private currentUserSubject : BehaviorSubject<any>;
 
-  public currentUser : Observable<any>;
+  public  currentUser : Observable<any>;
 
   private loginUrl = 'http://localhost:8085/api/auth/signin';
   private signupUrl = 'http://localhost:8085/api/auth/signup';
