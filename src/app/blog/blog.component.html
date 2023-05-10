@@ -1,1 +1,103 @@
-<p>blog works!</p>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Ajouter un article</h2>
+                <form (submit)="addBlog()">
+                    <div class="form-group">
+                        <label for="description">title</label>
+                        <input type="text" name="description" id="description" class="form-control" [(ngModel)]="blog.title" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description" class="form-control" [(ngModel)]="blog.description" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Catégorie</label>
+                        <select name="category" id="category" class="form-control" [(ngModel)]="blog.category" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                  </select>
+                        <label for="image">Image</label>
+                        <input type="file" name="image" id="image" class="form-control" (change)="onImageSelect($event)">
+                    </div>
+
+                    <button class="btn btn-primary">Poster</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Filtrer par catégorie</h2>
+                <div class="form-group">
+                    <label for="categorySelect">Sélectionner une catégorie :</label>
+                    <select name="categorySelect" id="categorySelect" class="form-control" [(ngModel)]="selectedCategory" (change)="onCategorySelect()">
+          <option value="">Toutes les catégories</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row" *ngIf="filteredBlogs">
+            <div class="col-md-6">
+                <h2>Articles</h2>
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let blog of filteredBlogs; let i=index" [ngClass]="{'mb-md-0': i%2==0}">
+                        <div class="card mb-4">
+                            <img [src]="blog.image" alt="Card image cap" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ blog.description }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ blog.category }}</h6>
+                                <p class="card-text"><small class="text-muted">{{ blog.date | date }}</small></p>
+                                <div class="btn-group mr-2" role="group" aria-label="Reaction buttons">
+                                    <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'LIKE')">
+                                <span aria-label="like" role="img">👍</span>
+                                <span class="ml-1">{{ blog.nbrjaime }}</span>
+                              </button>
+                                    <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'LOVE')">
+                                <span aria-label="love" role="img">❤️</span>
+                                <span class="ml-1">{{ blog.nbrlove }}</span>
+                              </button>
+                                    <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'DISLIKE')">
+                              <span aria-label="dislike" role="img">👎</span>
+                              <span class="ml-1">{{ blog.nbrjaimepas }}</span>
+                          </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Articles</h2>
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let blog of filteredBlogs; let i=index" [ngClass]="{'mb-md-0': i%2==0}">
+                            <div class="card mb-4">
+                                <img [src]="blog.image" alt="Card image cap" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ blog.description }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ blog.category }}</h6>
+                                    <p class="card-text"><small class="text-muted">{{ blog.date | date }}</small></p>
+                                    <div class="btn-group mr-2" role="group" aria-label="Reaction buttons">
+                                        <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'LIKE')">
+                              <span aria-label="like" role="img">👍</span>
+                              <span class="ml-1">{{ blog.nbrjaime }}</span>
+                              </button>
+                                        <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'LOVE')">
+                              <span aria-label="love" role="img">❤️</span>
+                              <span class="ml-1">{{ blog.nbrlove }}</span>
+                              </button>
+                                        <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'DISLIKE')">
+                              <span aria-label="dislike" role="img">👎</span>
+                              <span class="ml-1">{{ blog.nbrjaimepas }}</span>
+                              </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>

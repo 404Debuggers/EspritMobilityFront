@@ -38,6 +38,7 @@ import { UpdateReservationComponent } from './update-reservation/update-reservat
 import { ChartComponent } from './chart/chart.component';
 import { UniversityComponent } from './university/university.component';
 import { ProgrammeOffreComponent } from './programme-offre/programme-offre.component';
+import { PublicationComponent } from './publication/publication.component';
 
 
 
@@ -73,6 +74,7 @@ import { ProgrammeOffreComponent } from './programme-offre/programme-offre.compo
     UpdateReservationComponent,
     UniversityComponent,
     ProgrammeOffreComponent,
+    PublicationComponent,
   ],
   imports: [
     BrowserModule,
