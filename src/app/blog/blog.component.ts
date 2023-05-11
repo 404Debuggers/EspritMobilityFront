@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ReactionType } from '../class/ReactionType.enum';
 import { Blog } from '../class/blog';
@@ -5,6 +6,7 @@ import { Category } from '../class/Category.enum';
 import { BlogReaction } from '../class/blog-reaction';
 import { BlogService } from '../shared/blog.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../class/user';
 
 @Component({
   selector: 'app-blog',
@@ -31,8 +33,11 @@ export class BlogComponent implements OnInit {
   Like: any;
   Dislike:any;
   BlogReaction: BlogReaction = new BlogReaction();
+  alumniData: any;
+  alumni:boolean | undefined;
 
 id:any;
+  User: any;
 
 
   constructor(private blogService: BlogService,private route: ActivatedRoute) { }
@@ -53,6 +58,8 @@ id:any;
     this.getAllBlogs();
     this.blogId = parseInt(this.route.snapshot.paramMap.get('id') ?? '0');
     this.onCategorySelect();
+    this.getAlumniData();
+
   }
 
   getAllBlogs() {
@@ -104,6 +111,18 @@ id:any;
         }
       );
   }
+  getAlumniData(): void {
+        this.blogService.getAlumniData().subscribe(
+          (data: any) => {
+            this.alumniData = data;
+            console.log(this.alumniData); // You can do whatever you want with the data here
+          },
+          (error: any) => {
+            console.error(error);
+          }
+        );
+      }
+
 
 
 

@@ -19,11 +19,12 @@ export class ViewCandidacyByofferComponent implements OnInit {
     this.id = this.route.snapshot.params["id"];
     console.log(this.id);
     console.log(this.role);
+
     this.candidacyService.getCandidacyByOfferid(this.id).subscribe((res:any) =>this.listCandidacy = res);
   }
   acceptBestCandidatures(id:any){
   this.candidacyService.acceptBestCandidatures(id).subscribe((res:any) =>this.listCandidacy = res);
-  window.location.reload();
+
   }
 
 

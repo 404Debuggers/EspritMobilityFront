@@ -42,6 +42,7 @@ import { PublicationComponent } from './publication/publication.component';
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { PayementComponent } from './payement/payement.component';
 
 
 
@@ -81,6 +82,7 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
     UserComponent,
     ProfileComponent,
     FavoriteListComponent,
+    PayementComponent,
   ],
   imports: [
     BrowserModule,

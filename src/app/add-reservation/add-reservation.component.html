@@ -1,19 +1,30 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 <main id="main" class="main">
-  <form (ngSubmit)="addReservation(reservation)" class="col-lg-7" style="margin-top: 90px;margin-left:330px">
-
-
-
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Add Reservation</h5>
+  <form>
     <div class="form-group">
-      <label>Document</label>
-      <input type="text" class ="form-control" id="description"
-             [(ngModel)]="reservation.documents" name="description">
-    </div>
-    <button class="btn btn-success" type="submit" style="margin-right: 40px;">ADD RESERVATION</button>
-    <button class="btn btn-danger" type="reset" >Reset </button>
+      <label>Dorm</label>
+      <select [(ngModel)]="idDorm" class ="form-control" data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+                <option *ngFor="let dor of dorms " value="{{dor.dormitoriesId}}">{{dor.location}}</option>
 
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label>Candidacy ID</label>
+      <select [(ngModel)]="candidacyId" class ="form-control" data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;"id="candidacyId">
+        <option *ngFor="let can of candidacys " value="{{can.candidatureId}}">{{can.attachements}}</option>
+
+    </select>
+    </div>
+    <button class="btn btn-success" (click)="addReservation(idDorm,candidacyId)" type="submit" style="margin-right: 1rem; margin-top: 1rem;">ADD RESERVATION</button>
+    <button class="btn btn-danger" type="reset" style=" margin-top: 1rem;" >Reset </button>
   </form>
+  </div>
+  </div>
 </main>
 
 

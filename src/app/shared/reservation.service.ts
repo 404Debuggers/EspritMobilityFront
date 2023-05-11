@@ -18,6 +18,7 @@ export class ReservationService {
   private updateReservation ="http://localhost:8085/api/test/UpdateReservation";
   private getReservationById ="http://localhost:8085/api/test/getReservationById";
   private apiUrl ="http://localhost:8085/api/test";
+  private pay = 'http://localhost:8085/api/test';
   candidacy!: Candidacy ;
   dorm: Dormitories | undefined
 
@@ -33,14 +34,10 @@ export class ReservationService {
     DeleteReservation(id : number):Observable<any>{
       return this.http.delete<any>(`${this.deleteReservation}/${id}`);
     }
-    AddReservation(reservation: Reservation, did: any, candidacyId: number): Observable<Object> {
-      const token = sessionStorage.getItem('Token');
-      console.info(token);
-      const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      });
-      return this.http.post(`${this.addReservation}/${did}/${candidacyId}`, { documents: reservation.documents }, { headers });
+    AddReservation(reservation: Reservation, cidd:any,did:any ): Observable<Object> {
+
+
+      return this.http.post(`${this.addReservation}/${cidd}/${did}`, reservation, this.httpOptions);
     }
     GetAllCondidacy():Observable<any[]>{
       const token = sessionStorage.getItem('Token');
@@ -64,18 +61,19 @@ export class ReservationService {
       GetReservationById(id : number):Observable<any>{
         return this.http.get<any>(`${this.getReservationById}/${id}`)
       }
-      payDormFees(cardNumber: string, expMonth: string, expYear: string, cvc: string, amount: number, currency: string, reservationId: number, recipientEmail: string): Observable<any> {
-        const url = `${this.apiUrl}/dorm-payment`;
-        const body = {
-          cardNumber: cardNumber,
-          expMonth: expMonth,
-          expYear: expYear,
-          cvc: cvc,
-          amount: amount,
-          currency: currency,
-          reservationId: reservationId,
-          recipientEmail: recipientEmail
-        };
-        return this.http.post<any>(url, body);
-      }
+      payDormFees(cardNumber: string, expMonth: string, expYear: string, cvc: string, amount: number, currency: string, reservationId: number, recipientEmail: string) {
+                const url = `${this.pay}/payDormFees`;
+                const body = {
+                  cardNumber,
+                  expMonth,
+                  expYear,
+                  cvc,
+                  amount,
+                  currency,
+                  reservationId,
+                  recipientEmail
+                };
+                return this.http.post(url, body);
+              }
+
 }

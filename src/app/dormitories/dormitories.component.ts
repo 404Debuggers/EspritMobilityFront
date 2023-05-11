@@ -49,6 +49,9 @@ getalldorm(){
     redirectToaddReservation(dormId: number){
       this.router.navigate(['addReservation/',dormId]);     console.log("hhhhhhhhhh");
     }
+    addpaiment(){
+      this.router.navigate(['/payment'])
+    }
 
 
 }

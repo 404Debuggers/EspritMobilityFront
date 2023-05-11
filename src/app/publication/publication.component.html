@@ -1,10 +1,10 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
 
-<br><br><br><br><br><br>
 
 <main id="main" class="main">
-
+  <div class="card">
+    <div class="card-body">
     <div class="container my-4">
         <h1 class="text-danger">Exprimez-vous aujourd'hui!</h1>
         <form (submit)="onSubmit()">
@@ -18,55 +18,55 @@
             </div>
             <button class="btn btn-danger" (click)="AddPost(post)">Poster</button>
         </form>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6" *ngFor="let postt of posts">
+      <div class="card" style="display: flex; flex-wrap: wrap;" >
+        <div class="card-header" style="color:#012970 ;">{{ postt.user.firstName }}
+          <a  style="color: #EC3636 ;float: right;" class="action-icon" data-toggle="tooltip" title="Archive candidacy" data-original-title="Archive candidacy">
+            <i class="bi bi-trash"></i>
+          </a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ postt.title }}</h5>
+            <p class="card-text">{{ postt.description }}</p>
+            <p class="card-text"><small class="text-muted">Publié le {{ postt.date | date: 'dd/MM/yyyy' }}</small></p>
+            <button class="btn btn-primary" (click)="likePost(postt.postId)">
+            Like <i class="bi bi-hand-thumbs-up"></i> {{ postt.nbrLike }}
+        </button>
+            <button class="btn btn-primary" (click)="dislikePost(postt.postId)" style="margin-left: 1rem;margin-right: 1rem;">
+            Dislike <i class="bi bi-hand-thumbs-down"></i> {{ postt.nbrDislike }}
+        </button>
+            <button class="btn btn-danger float-right" (click)="deletePost(postt.postId)">Supprimer</button>
+            <form (submit)="addComment(postt.postId)">
+                <div class="form-group">
+                    <label for="comment" style="margin-top: 1rem;margin-bottom: 1rem;">Ajouter un commentaire :</label>
+                    <input type="text" name="comment" id="comment" class="form-control" [(ngModel)]="comment.description" [ngModelOptions]="{standalone: true}">
+                </div>
+                <button class="btn btn-primary" style="margin-top: 1rem;">Commenter <i class="bi bi-chat-left"></i></button>
+                </form>
+            <hr>
+            <div >
+                <div *ngFor="let comment of postt.commentSet" >
+                    <div class="card-header">{{ comment.user.firstName }}</div>
+                    <div class="comment-body">{{ comment.description }} </div>
 
-        <hr>
+                    <div>
+                      <span class="delete-comment" (click)="deleteComment(comment.commentId)"><i class="bi bi-trash"></i></span>
 
-        <div class="row" style=" margin-right: 50px;">
-            <div class="col-md-12">
-                <div class="card mb-3" *ngFor="let postt of posts">
-                    <div class="card-header">{{ postt.user.firstName }}</div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ postt.title }}</h5>
-                        <p class="card-text">{{ postt.description }}</p>
-                        <p class="card-text"><small class="text-muted">Publié le {{ postt.date | date: 'dd/MM/yyyy' }}</small></p>
-                        <button class="btn btn-primary" (click)="likePost(postt.postId)">
-                        Like <i class="bi bi-hand-thumbs-up"></i> {{ postt.nbrLike }}
-                    </button>
-                        <button class="btn btn-primary" (click)="dislikePost(postt.postId)">
-                        Dislike <i class="bi bi-hand-thumbs-down"></i> {{ postt.nbrDislike }}
-                    </button>
-                        <button class="btn btn-danger float-right" (click)="deletePost(postt.postId)">Supprimer</button>
-
-                        <hr>
-
-                        <form (submit)="addComment(postt.postId)">
-                            <div class="form-group">
-                                <label for="comment">Ajouter un commentaire :</label>
-                                <input type="text" name="comment" id="comment" class="form-control" [(ngModel)]="comment.description" [ngModelOptions]="{standalone: true}">
-                            </div>
-                            <button class="btn btn-primary">Commenter <i class="bi bi-chat-left"></i></button>
-                            </form>
-
-                        <hr>
-                        <div class="comments">
-                            <div *ngFor="let comment of postt.commentSet" class="comment">
-                                <div class="card-header">{{ comment.user.firstName }}</div>
-                                <div class="comment-body">{{ comment.description }} </div>
-
-                                <div>
-                                  <span class="delete-comment" (click)="deleteComment(comment.commentId)"><i class="bi bi-trash"></i></span>
-
-                                </div>
-                                <div class="replies">
-                                    <div *ngFor="let reply of comment.reply" class="reply">{{ reply.description }}</div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="replies">
+                        <div *ngFor="let reply of comment.reply" class="reply">{{ reply.description }}</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+      </div>
+  </div>
+
 
 </main>
 
