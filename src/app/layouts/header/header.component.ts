@@ -1,3 +1,4 @@
+import { OfferService } from './../../shared/offer.service';
 import { UserService } from './../../shared/user.service';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
@@ -11,10 +12,12 @@ export class HeaderComponent  {
   role:string | undefined;
   username:string | undefined
   user_Id:string | undefined
+  offers :any | undefined;
 
   currentUser!: User;
   updatedUser!: User;
-  constructor(private router: Router ,private userService : UserService) { }
+
+  constructor(private router: Router ,private userService : UserService,private OfferService : OfferService) { }
 
   ngOnInit(): void {
     const token = sessionStorage.getItem('Token') || 'default_token';
@@ -31,6 +34,9 @@ export class HeaderComponent  {
         this.updatedUser = Object.assign({}, this.currentUser);
       }
      );
+
+     this.OfferService.getFavOffers().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
+
   }
 
   toogle(){

@@ -45,14 +45,18 @@
                                 <input type="text" name="comment" id="comment" class="form-control" [(ngModel)]="comment.description" [ngModelOptions]="{standalone: true}">
                             </div>
                             <button class="btn btn-primary">Commenter <i class="bi bi-chat-left"></i></button>
-                        </form>
+                            </form>
 
                         <hr>
-
                         <div class="comments">
                             <div *ngFor="let comment of postt.commentSet" class="comment">
                                 <div class="card-header">{{ comment.user.firstName }}</div>
                                 <div class="comment-body">{{ comment.description }} </div>
+
+                                <div>
+                                  <span class="delete-comment" (click)="deleteComment(comment.commentId)"><i class="bi bi-trash"></i></span>
+
+                                </div>
                                 <div class="replies">
                                     <div *ngFor="let reply of comment.reply" class="reply">{{ reply.description }}</div>
                                 </div>

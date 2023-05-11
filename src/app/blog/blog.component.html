@@ -40,7 +40,7 @@
 
         <hr>
 
-        <div class="row" *ngIf="filteredBlogs">
+        <!-- <div class="row" *ngIf="filteredBlogs">
             <div class="col-md-6">
                 <h2>Articles</h2>
                 <div class="row">
@@ -99,5 +99,34 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <div class="row">
+          <div class="col-md-6" *ngFor="let blog of filteredBlogs">
+            <div class="card mb-4">
+              <img [src]="blog.image" alt="Card image cap" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">{{ blog.description }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ blog.category }}</h6>
+                <p class="card-text"><small class="text-muted">{{ blog.date | date }}</small></p>
+                <div class="btn-group mr-2" role="group" aria-label="Reaction buttons">
+                  <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'LIKE')">
+                    <span aria-label="like" role="img">👍</span>
+                    <span class="ml-1">{{ blog.nbrjaime }}</span>
+                  </button>
+                  <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'LOVE')">
+                    <span aria-label="love" role="img">❤️</span>
+                    <span class="ml-1">{{ blog.nbrlove }}</span>
+                  </button>
+                  <button type="button" class="btn btn-light" (click)="onReaction(blog.blogId, 'DISLIKE')">
+                    <span aria-label="dislike" role="img">👎</span>
+                    <span class="ml-1">{{ blog.nbrjaimepas }}</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
+
       </main>

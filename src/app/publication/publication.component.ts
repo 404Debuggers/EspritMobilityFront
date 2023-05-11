@@ -25,6 +25,7 @@ export class PublicationComponent implements OnInit {
    posts: any;
   comment: Comment = new Comment();
   comForm!: FormGroup;
+  editMode: boolean = false;
 
   constructor(private forumService: ForumService, private router: ActivatedRoute, private fb: FormBuilder, private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
     this.comForm = this.fb.group({
@@ -114,5 +115,12 @@ export class PublicationComponent implements OnInit {
   deletePost(postId: any) {
     this.forumService.DeletePost(postId).subscribe((res: any) => this.getAllPosts())
   }
+
+  deleteComment(commentId: number) {
+    this.forumService.DeleteComment(commentId).subscribe((res: any) => this.getAllComments())
+  }
+
+
+
 
 }

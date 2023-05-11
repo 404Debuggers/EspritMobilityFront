@@ -18,7 +18,11 @@ export class ForumService {
 
   private UpdatePost = "http://localhost:8080/api/test/UpdatePost/";
 
-  private deletePost = "http://localhost:8085/api/test/delp"
+  private deletePost = "http://localhost:8085/api/test/delp";
+
+  private deleteComm = "http://localhost:8085/api/test/DELETE";
+
+  private updatePost = "http://localhost:8085/api/test/UpdatePost";
 
 
   httpOptions = {
@@ -99,4 +103,26 @@ export class ForumService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json'
     })}
+
+    DeleteComment(commentId:any):Observable<any>{
+      const token = sessionStorage.getItem('Token');
+      console.info(token);
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      return this.http.delete(`${this.deleteComm}/${commentId}`, { headers });
+    }
+
+    UpdatePostt(postId : any , postUpdated: Post): Observable<any>{
+      const token = sessionStorage.getItem('Token');
+      console.info(token);
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      return this.http.put(`${this.updatePost}/${postId}`, postUpdated, { headers });
+    }
+
+
+
+
 }

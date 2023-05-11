@@ -41,6 +41,7 @@ import { ProgrammeOffreComponent } from './programme-offre/programme-offre.compo
 import { PublicationComponent } from './publication/publication.component';
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 
 
@@ -79,6 +80,7 @@ import { ProfileComponent } from './user/profile/profile.component';
     PublicationComponent,
     UserComponent,
     ProfileComponent,
+    FavoriteListComponent,
   ],
   imports: [
     BrowserModule,

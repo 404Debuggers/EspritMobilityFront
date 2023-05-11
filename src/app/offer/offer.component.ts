@@ -39,7 +39,7 @@ export class OfferComponent implements OnInit {
       title: null,
     }
     //this.offerService.getAllOffer().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
-    this.offerService.getSimilarOffers(token).subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
+    this.offerService.getSimilarOffers().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
   }
    redirectToCandidacyForm(offerId: number) {
 
@@ -48,6 +48,8 @@ export class OfferComponent implements OnInit {
 // redirectToCandidacyForm(offerId: number) {
 //   this.router.navigate(['addcandidacy/id:', offerId]);
 // }
+
+
 redirectTocandidacylist(offerId: number) {
   this.router.navigate(['viewcandidacybyoffer', offerId]);
 

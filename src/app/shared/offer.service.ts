@@ -1,6 +1,6 @@
+import { Offer } from './../class/offer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Offer } from '../class/offer';
 import { Observable, map } from 'rxjs';
 import { url } from 'inspector';
 
@@ -47,9 +47,10 @@ getofferbyid(offerId : any){
 
   }
 
-  getSimilarOffers(token : string): Observable<any>  {
-    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}`});
-    return this.httpClient.get<any>(`${this.API_URL}/findOffersWithS/}`, { headers });
+  getSimilarOffers(): Observable<any>  {
+    const token = sessionStorage.getItem('Token');
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.httpClient.get<any>(`${this.API_URL}/findOffersWithS`, { headers });
   }
 
 
