@@ -1,0 +1,127 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Interview</h5>
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+              <thead>
+             <tr>
+                <th scope="col">Student Id</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Sexe</th>
+                <th scope="col">Status</th>
+             </tr>
+
+              </thead>
+              <tbody>
+              <tr *ngFor='let u of listUsers'>
+                <td>{{u.user_Id}}</td>
+                <td>{{u.firstName}}</td>
+                <td>{{u.lastName}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.sexe}}</td>
+                <td>{{u.alumni}}</td>
+                <td><button  class="btn btn-danger" (click)="deleteUser(u?.user_Id)">Delete</button></td> <!-- delete button for each row -->
+
+              </tr>
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Student</h5>
+    <!-- General Form Elements -->
+    <form #form="ngForm">
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">First name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text"  [(ngModel)]="user.firstName"  [ngModelOptions]="{standalone:true}">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone:true}" >
+        </div>
+      </div>
+
+
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Date de naissance</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="date" [(ngModel)]="user.dateNaissance" [ngModelOptions]="{standalone:true}" >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" [(ngModel)]="user.email" [ngModelOptions]="{standalone:true}" >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone:true}" >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">CIN</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" [(ngModel)]="user.cin" [ngModelOptions]="{standalone:true}" >
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Adresse</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" [(ngModel)]="user.adresse" [ngModelOptions]="{standalone:true}" >
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" [(ngModel)]="user.phone" [ngModelOptions]="{standalone:true}" >
+
+
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Sexe</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" [(ngModel)]="user.sexe" name="sexe">
+            <option *ngFor="let option of genderOptions" [value]="option.value">{{ option.label }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary" (click)="register(user)">Send</button>
+        </div>
+      </div>
+
+    </form><!-- End General Form Elements -->
+  </div>
+</div>
+</main>

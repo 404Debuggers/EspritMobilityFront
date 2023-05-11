@@ -1,9 +1,11 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { OfferService } from '../shared/offer.service';
 import { RouterModule } from '@angular/router';
 import {Router} from "@angular/router";
 import { CandidacyService } from '../shared/candidacy.service';
 import { Offer } from '../class/offer';
+import { error } from 'console';
 
 @Component({
   selector: 'app-offer',
@@ -19,6 +21,7 @@ export class OfferComponent implements OnInit {
   constructor(private offerService : OfferService,private router: Router) { }
 
   ngOnInit(): void {
+    const token = sessionStorage.getItem('Token') || 'default_token';
     this.role = ""+sessionStorage.getItem("Role");
     this.offer = {
       offerId: null,
@@ -35,8 +38,8 @@ export class OfferComponent implements OnInit {
       university: null,
       title: null,
     }
-    this.offerService.getAllOffer().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
-    this.offerService.getSimilarOffers(sessionStorage.getItem("id")).subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
+    //this.offerService.getAllOffer().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
+    this.offerService.getSimilarOffers().subscribe(data => { this.offers = data ; } , err => { console.log(err.error)} );
   }
    redirectToCandidacyForm(offerId: number) {
 
@@ -45,6 +48,8 @@ export class OfferComponent implements OnInit {
 // redirectToCandidacyForm(offerId: number) {
 //   this.router.navigate(['addcandidacy/id:', offerId]);
 // }
+
+
 redirectTocandidacylist(offerId: number) {
   this.router.navigate(['viewcandidacybyoffer', offerId]);
 
@@ -99,16 +104,24 @@ redirectTocandidacylist(offerId: number) {
 
     addFav(offerId: any) {
 
+
       const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
       if (favorites.indexOf(offerId) === -1) {
         favorites.push(offerId);
         localStorage.setItem('favorites', JSON.stringify(favorites));
       }
-      this.offerService.addFavandAssigntouser(sessionStorage.getItem("id"),offerId).subscribe(() => {});
+      this.offerService.addFavandAssigntouser(offerId).subscribe(() => {});
     }
 
     deleteFavorite(offerId: any) {
-      this.offerService.deleteFavorite(sessionStorage.getItem("id"),offerId).subscribe(() => {});
+
+      this.offerService.deleteFavorite(offerId).subscribe((response) => {
+        console.log(response);
+
+      },
+      (error) => {
+        console.log(error);}
+        );
     }
     redirectToprogramoffer() {
       this.router.navigate(['programOffer']);

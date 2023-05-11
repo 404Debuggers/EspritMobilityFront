@@ -39,6 +39,9 @@ import { ChartComponent } from './chart/chart.component';
 import { UniversityComponent } from './university/university.component';
 import { ProgrammeOffreComponent } from './programme-offre/programme-offre.component';
 import { PublicationComponent } from './publication/publication.component';
+import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 
 
@@ -75,6 +78,9 @@ import { PublicationComponent } from './publication/publication.component';
     UniversityComponent,
     ProgrammeOffreComponent,
     PublicationComponent,
+    UserComponent,
+    ProfileComponent,
+    FavoriteListComponent,
   ],
   imports: [
     BrowserModule,

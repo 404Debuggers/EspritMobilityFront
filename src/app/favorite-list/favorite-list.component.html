@@ -1,0 +1,36 @@
+<main id="main" class="main">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="card-body">
+      <h5 class="card-title">Default Accordion</h5>
+
+
+      <div class="accordion" id="accordionExample" *ngFor = "let c of offers">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              {{c.title}} : {{c.fieldOfStudy}}
+            </button>
+
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+              <div style="text-align: right; padding-right: 10px">
+                  <button (click)="deleteFavorite(c.offerId)" type="button" class="btn btn-danger"><i class="bi bi-trash" ></i></button>
+                </div>
+
+              <div class="accordion-body">
+              <strong>{{c.title}}</strong> <p> Description : {{c.description}}<br>
+                  Frais : {{c.frais}} <br>
+                  Specialite : {{c.fieldOfStudy}} <br>
+                  Nombre de place : {{c.nbPlace}} </p>
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>

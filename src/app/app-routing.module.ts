@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CandidacyComponent } from './candidacy/candidacy.component';
 import { OfferComponent } from './offer/offer.component';
@@ -27,6 +27,9 @@ import { ChartComponent } from './chart/chart.component';
 import { UniversityComponent } from './university/university.component';
 import { ProgrammeOffreComponent } from './programme-offre/programme-offre.component';
 import { PublicationComponent } from './publication/publication.component';
+import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 
 
@@ -42,7 +45,6 @@ const routes: Routes = [
   { path: 'dormitories', component: DormitoriesComponent },
   { path: 'interview', component: InterviewComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'register' , component: RegisterComponent},
   { path: 'addcandidacy/:id' , component: AddCandidacyComponent},
   { path: 'viewcandidacybyoffer/:id' , component: ViewCandidacyByofferComponent},
   { path: 'addoffer' , component: AddOfferComponent},
@@ -59,7 +61,13 @@ const routes: Routes = [
   { path: 'chart/:offerId', component: ChartComponent},
   { path: 'university', component:UniversityComponent},
   { path: 'programOffer', component:ProgrammeOffreComponent},
-  { path: 'publication' , component:PublicationComponent}
+  { path: 'publication' , component:PublicationComponent},
+  { path: 'register' , component:UserComponent},
+  { path: 'profile' , component:ProfileComponent},
+  {path : 'favlist' , component:FavoriteListComponent}
+
+
+
 
 ];
 
