@@ -30,6 +30,7 @@ import { PublicationComponent } from './publication/publication.component';
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { PayementComponent } from './payement/payement.component';
 
 
 
@@ -64,7 +65,8 @@ const routes: Routes = [
   { path: 'publication' , component:PublicationComponent},
   { path: 'register' , component:UserComponent},
   { path: 'profile' , component:ProfileComponent},
-  {path : 'favlist' , component:FavoriteListComponent}
+  { path : 'favlist' , component:FavoriteListComponent},
+  { path: 'payment', component:PayementComponent}
 
 
 

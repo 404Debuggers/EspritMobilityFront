@@ -27,6 +27,7 @@ export class PublicationComponent implements OnInit {
   comForm!: FormGroup;
   editMode: boolean = false;
 
+
   constructor(private forumService: ForumService, private router: ActivatedRoute, private fb: FormBuilder, private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
     this.comForm = this.fb.group({
       description: [null, [Validators.required]]
@@ -44,9 +45,12 @@ export class PublicationComponent implements OnInit {
   }
 
   getAllPosts() {
-    this.forumService.GetAllPost().subscribe(data => {
+    this.forumService.GetAllPost().subscribe((data) => {
       this.posts = data;
-    })
+      this.posts.sort((a: Post, b: Post) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+    });
   }
 
   getAllComments() {
@@ -118,6 +122,7 @@ export class PublicationComponent implements OnInit {
 
   deleteComment(commentId: number) {
     this.forumService.DeleteComment(commentId).subscribe((res: any) => this.getAllComments())
+    window.location.reload();
   }
 
 

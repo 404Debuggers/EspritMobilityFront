@@ -11,6 +11,7 @@ export class BlogService {
   private AjoutBlog = "http://localhost:8085/api/test/BLOG";
   private AjoutReaction = 'http://localhost:8085/api/test/blogs';
   private apiUrl = 'http://localhost:8085/api/test/BLOG';
+  private dinamic = 'http://localhost:8085/DynamiqueEtudiant';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -56,6 +57,11 @@ createBlogReaction(blogId: number, reactionType: string): Observable<any> {
   const options = { headers };
   return this.httpClient.post<any>(url, null, options);
 }
+
+getAlumniData() {
+  return this.httpClient.get(this.dinamic);
+}
+
 
 
 }

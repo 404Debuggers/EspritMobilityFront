@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Payment Details
+        </div>
+        <div class="card-body">
+          <form #paymentForm="ngForm" (ngSubmit)="onSubmit(paymentForm)">
+
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" class="form-control" name="cardNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="expMonth">Expiration Month</label>
+              <input type="text" class="form-control" name="expMonth" required>
+            </div>
+            <div class="form-group">
+              <label for="expYear">Expiration Year</label>
+              <input type="text" class="form-control" name="expYear" required>
+            </div>
+            <div class="form-group">
+              <label for="cvc">CVC</label>
+              <input type="text" class="form-control" name="cvc" required>
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount</label>
+              <input type="text" class="form-control" name="amount" required>
+            </div>
+            <div class="form-group">
+              <label for="currency">Currency</label>
+              <input type="text" class="form-control" name="currency" required>
+            </div>
+            <div class="form-group">
+              <label for="reservationId">Reservation ID</label>
+              <input type="text" class="form-control" name="reservationId" required>
+            </div>
+            <div class="form-group">
+              <label for="recipientEmail">Recipient Email</label>
+              <input type="email" class="form-control" name="recipientEmail" required>
+            </div>
+            <button class="btn btn-success">Pay</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

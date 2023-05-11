@@ -11,19 +11,25 @@ import { Candidacy } from '../class/candidacy';
   styleUrls: ['./add-reservation.component.css']
 })
 export class AddReservationComponent implements OnInit {
-
   idCondidacy : any;
 
   idDorm: any;
 
   condidacy : any;
-  c!:Candidacy;
 
   dorms !: Dormitories[];
+  candidacys :any;
+
+  dormitoriesId:any=this.ReservService.GetAllCondidacy;
+
+  reservation: Reservation = new Reservation();
+  candidacy: Candidacy = new Candidacy();
+  dorm: Dormitories = new Dormitories();
+  reservationForm: any;
+  dormId = 1;
+  candidacyId=1;
 
 
-
-  reservation : Reservation = new Reservation();
   ngOnInit(): void {
     this.getAllCondidacy;
     this.getAlldorm;
@@ -37,16 +43,17 @@ export class AddReservationComponent implements OnInit {
 }
   constructor(private ReservService : ReservationService,private router: Router,private route: ActivatedRoute) { }
 
-  addReservation(reservation: Reservation) {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    const candidacyId = reservation.candidacy?.candidatureId;
-    if (!candidacyId) {
-      // Handle case where candidacy is not defined
-      return;
-    }
-    this.ReservService.AddReservation(reservation, id, candidacyId).subscribe();
-    console.log(reservation);
-    this.router.navigate(['/candidacy']);
+  addReservation(dormId:any,candidacyId:any) {
+    this.candidacys=this.ReservService.GetAllCondidacy;
+    // Set the candidacy and dormitory IDs
+    //var candidacyId = this.candidacy.candidatureId;
+    //var dormId = this.dorm.dormitoriesId;
+console.log(this.reservation)
+      // Call the service method and pass in the required parameters
+    this.ReservService.AddReservation(this.reservation,candidacyId,dormId)
+      .subscribe(data=> {
+        console.log(data);
+      });
   }
   getAllCondidacy(){
     this.ReservService.GetAllCondidacy().subscribe(data =>{
